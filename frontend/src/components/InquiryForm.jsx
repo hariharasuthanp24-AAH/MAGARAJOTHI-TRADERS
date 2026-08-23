@@ -10,7 +10,7 @@ const InquiryForm = () => {
     company: '',
     productCategory: 'Jute',
     productName: 'General Inquiry',
-    quantity: '500 Units',
+    quantity: '1,000 Bags',
     message: '',
   });
 
@@ -35,7 +35,7 @@ const InquiryForm = () => {
         company: '',
         productCategory: 'Jute',
         productName: 'General Inquiry',
-        quantity: '500 Units',
+        quantity: '1,000 Bags',
         message: '',
       });
     } catch (err) {
@@ -121,7 +121,7 @@ const InquiryForm = () => {
                   </div>
                   <div>
                     <span className="text-xs text-gray-500 block font-semibold uppercase tracking-wider">Desk Hours:</span>
-                    <span className="text-gray-800 font-semibold">Mon – Sat: 9:00 AM – 8:30 PM IST</span>
+                    <span className="text-gray-800 font-semibold">Monday – Saturday: 9:00 AM – 6:30 PM IST</span>
                   </div>
                 </div>
               </div>
@@ -173,10 +173,10 @@ const InquiryForm = () => {
                       type="text"
                       name="name"
                       required
-                      placeholder="e.g. K. Rajasekaran"
+                      placeholder="e.g., K. Rajasekaran"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
 
@@ -188,10 +188,10 @@ const InquiryForm = () => {
                       type="tel"
                       name="phone"
                       required
-                      placeholder="+91 90252 36106"
+                      placeholder="e.g., +91 98765 43210"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
                 </div>
@@ -205,10 +205,10 @@ const InquiryForm = () => {
                       type="email"
                       name="email"
                       required
-                      placeholder="mjttraders.24@gmail.com"
+                      placeholder="e.g., purchase@company.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
 
@@ -219,10 +219,10 @@ const InquiryForm = () => {
                     <input
                       type="text"
                       name="company"
-                      placeholder="e.g. Sri Annapoorna Rice Mill"
+                      placeholder="e.g., Sri Krishna Rice Mill"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
                 </div>
@@ -239,7 +239,7 @@ const InquiryForm = () => {
                       className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition font-medium"
                     >
                       <option value="Jute">🌾 Jute Bags (A-Twill, B-Twill, Hessian)</option>
-                      <option value="Nano Bags">b👜 Nano Bags (Mini Eco Bags)</option>
+                      <option value="Nano Bags">👜 Nano Bags (Mini Eco Bags)</option>
                       <option value="Jute Thread">🧵 Jute Thread (Twine Spools)</option>
                       <option value="2nd Jute Bags">♻️ 2nd Jute Bags (Clean Once-Used)</option>
                       <option value="Plastic">🏗️ Plastic Bags (HDPE Woven Sacks)</option>
@@ -255,10 +255,10 @@ const InquiryForm = () => {
                     <input
                       type="text"
                       name="quantity"
-                      placeholder="e.g. 500 Bags / 2 Rolls"
+                      placeholder="e.g., 1,000 Bags"
                       value={formData.quantity}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
                 </div>
@@ -271,10 +271,10 @@ const InquiryForm = () => {
                     name="message"
                     rows="4"
                     required
-                    placeholder="Specify bag dimensions, custom printing, GSM requirements, or destination location..."
+                    placeholder="e.g., Please provide bag dimensions, GSM specifications, custom logo printing details, and expected delivery timeline..."
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                    className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                   ></textarea>
                 </div>
 

@@ -34,7 +34,7 @@ const EnquirePage = () => {
     company: '',
     productCategory: categoryFromUrl || 'Jute',
     productName: productFromUrl || 'General Inquiry',
-    quantity: '500 Units',
+    quantity: '1,000 Bags',
     message: productFromUrl ? `Hello, I would like to request a formal quotation and sample availability for ${productFromUrl}.` : '',
   });
 
@@ -63,7 +63,7 @@ const EnquirePage = () => {
         company: '',
         productCategory: 'Jute',
         productName: 'General Inquiry',
-        quantity: '500 Units',
+        quantity: '1,000 Bags',
         message: '',
       });
     } catch (err) {
@@ -82,7 +82,7 @@ const EnquirePage = () => {
       {/* Navigation */}
       <Navbar onOpenAdminModal={() => setAdminModalOpen(true)} />
 
-      {/* Hero Page Banner - Clean Bright Theme with Dark Contrast */}
+      {/* Hero Page Banner */}
       <section className="bg-[#FAF6F0] py-14 md:py-20 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -265,10 +265,10 @@ const EnquirePage = () => {
                           type="text"
                           name="name"
                           required
-                          placeholder="e.g. Hariharan"
+                          placeholder="e.g., K. Rajasekaran"
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
                       <div>
@@ -279,10 +279,10 @@ const EnquirePage = () => {
                           type="tel"
                           name="phone"
                           required
-                          placeholder="e.g. +91 9025236106"
+                          placeholder="e.g., +91 98765 43210"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
                     </div>
@@ -291,15 +291,16 @@ const EnquirePage = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                          Email Address
+                          Email Address <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="email"
                           name="email"
-                          placeholder="e.g. sales@yourcompany.com"
+                          required
+                          placeholder="e.g., purchase@company.com"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
                       <div>
@@ -309,10 +310,10 @@ const EnquirePage = () => {
                         <input
                           type="text"
                           name="company"
-                          placeholder="e.g. Rice Mill / Merchant Name"
+                          placeholder="e.g., Sri Krishna Rice Mill"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
                     </div>
@@ -344,10 +345,10 @@ const EnquirePage = () => {
                         <input
                           type="text"
                           name="quantity"
-                          placeholder="e.g. 500 Bags / 2 Rolls"
+                          placeholder="e.g., 1,000 Bags"
                           value={formData.quantity}
                           onChange={handleChange}
-                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
                     </div>
@@ -361,10 +362,10 @@ const EnquirePage = () => {
                         name="message"
                         rows="4"
                         required
-                        placeholder="Mention bag size, custom logo printing details, GSM specifications, or delivery timeline..."
+                        placeholder="e.g., Please provide bag dimensions, GSM specifications, custom logo printing details, and expected delivery timeline..."
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                        className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                       ></textarea>
                     </div>
 
