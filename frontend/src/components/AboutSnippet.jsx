@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2, ArrowUpRight, Leaf, Truck } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, ArrowUpRight, Leaf, Truck, Award } from 'lucide-react';
 
 const AboutSnippet = ({ onOpenInquiry }) => {
   return (
@@ -13,18 +13,18 @@ const AboutSnippet = ({ onOpenInquiry }) => {
             <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-[#FAF6F0] p-3">
               <img
                 src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80"
-                alt="Magarajothi Traders Natural Jute Sourcing"
+                alt="Magarajothi Traders Natural Jute Sourcing Since 1985"
                 className="w-full h-80 sm:h-96 object-cover rounded-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent rounded-xl" />
               
-              {/* Overlay Stat Badge */}
+              {/* Overlay Stat Badge (Founding Year Badge) */}
               <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-gray-200 shadow-lg flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-jute-light/20 text-jute-dark flex items-center justify-center font-bold shrink-0 border border-jute-light/40">
-                  <Leaf size={24} className="text-jute-dark" />
+                  <Award size={24} className="text-jute-dark" />
                 </div>
                 <div>
-                  <div className="text-base font-extrabold text-gray-900">Direct Mill Sourcing</div>
+                  <div className="text-base font-extrabold text-gray-900">40+ Years Legacy (Est. 1985)</div>
                   <div className="text-xs text-gray-600 font-medium">100% Bio-Degradable Jute & Hessian Fiber</div>
                 </div>
               </div>
@@ -36,20 +36,20 @@ const AboutSnippet = ({ onOpenInquiry }) => {
             
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jute-light/20 border border-jute-light/40 text-jute-dark text-sm font-bold uppercase tracking-wider">
               <ShieldCheck className="w-4 h-4 text-jute-dark" />
-              <span>Premier Merchant & Exporter</span>
+              <span>Premier Merchant & Exporter • Est. 1985</span>
             </div>
 
-            {/* High-Contrast Bold Accent for Headings */}
+            {/* Heading Accent */}
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-tight">
               Pioneering Sustainable <span className="text-jute-dark font-black">Jute & Eco Packaging</span> Solutions Across India
             </h2>
 
-            {/* Paragraph with High-Contrast Dark Text Highlights */}
+            {/* Paragraph featuring founding year 1985 */}
             <p className="text-gray-800 text-base md:text-lg leading-relaxed font-normal">
-              Established in Dharapuram, Tamil Nadu, <strong className="text-gray-900 font-extrabold">Magarajothi Traders</strong> is a trusted merchant supplying <span className="bg-[#F5E6D3] text-gray-900 font-extrabold px-2 py-0.5 rounded-md border border-[#E6D0B8] shadow-sm">100% Natural Jute Bags</span>, Nano Bags, Jute Thread spools, Grade-A 2nd Jute Bags, and HDPE Plastic Rolls with <span className="bg-[#F5E6D3] text-gray-900 font-extrabold px-2 py-0.5 rounded-md border border-[#E6D0B8] shadow-sm">Direct Mill Pricing</span> for exporters and agricultural mills.
+              <span className="bg-[#F5E6D3] text-gray-900 font-extrabold px-2 py-0.5 rounded-md border border-[#E6D0B8] shadow-sm">Established in 1985</span> in Dharapuram, Tamil Nadu, <strong className="text-gray-900 font-extrabold">Magarajothi Traders</strong> brings over four decades of trusted merchant legacy, supplying <span className="bg-[#F5E6D3] text-gray-900 font-extrabold px-2 py-0.5 rounded-md border border-[#E6D0B8] shadow-sm">100% Natural Jute Bags</span>, Nano Bags, Jute Thread spools, Grade-A 2nd Jute Bags, and HDPE Plastic Rolls with <span className="bg-[#F5E6D3] text-gray-900 font-extrabold px-2 py-0.5 rounded-md border border-[#E6D0B8] shadow-sm">Direct Mill Pricing</span> for exporters and agricultural mills.
             </p>
 
-            {/* Core Pillars with High-Contrast Badges */}
+            {/* Core Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-base font-semibold text-gray-900">
               <div className="flex items-center gap-3 bg-[#FAF6F0] p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
@@ -65,7 +65,7 @@ const AboutSnippet = ({ onOpenInquiry }) => {
               </div>
               <div className="flex items-center gap-3 bg-[#FAF6F0] p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
-                <span><span className="bg-[#F5E6D3] text-gray-900 font-extrabold px-2 py-0.5 rounded-md border border-[#E6D0B8]">Direct Mill</span> Wholesale Rates</span>
+                <span><span className="bg-[#F5E6D3] text-gray-900 font-extrabold px-2 py-0.5 rounded-md border border-[#E6D0B8]">Direct Mill</span> Rates Since 1985</span>
               </div>
             </div>
 

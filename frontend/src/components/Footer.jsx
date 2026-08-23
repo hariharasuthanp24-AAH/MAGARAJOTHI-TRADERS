@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Send, ShieldCheck, Leaf, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ShieldCheck, Leaf, ArrowRight, Award } from 'lucide-react';
 
 const Footer = ({ onSelectCategory, onOpenInquiry }) => {
 
@@ -21,7 +21,7 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div className="space-y-1">
               <span className="text-xs text-jute-dark font-extrabold tracking-widest uppercase block">
-                COMMERCIAL DESK ASSISTANCE
+                COMMERCIAL DESK ASSISTANCE • EST. 1985
               </span>
               <h4 className="text-xl sm:text-2xl font-serif font-bold text-gray-900">
                 Need Fast Factory Quotations or Custom Bag Samples?
@@ -67,16 +67,21 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
                     MAGARAJOTHI
                   </span>
                   <span className="text-xs text-jute font-bold uppercase tracking-widest">
-                    TRADERS • DHARAPURAM
+                    TRADERS • EST. 1985
                   </span>
                 </div>
               </div>
 
+              {/* Brand description including founding year */}
               <p className="text-gray-400 text-sm leading-relaxed font-normal max-w-sm">
-                Authorized Merchant Supplier & Exporter of 100% Food-Grade Jute Bags, Hessian Cloth, Jute Thread, Grade-A 2nd Jute Sacks & Industrial HDPE Plastic Rolls across India.
+                A trusted name in merchant export since 1985. Authorized Supplier of 100% Food-Grade Jute Bags, Hessian Cloth, Jute Thread, Grade-A 2nd Jute Sacks & Industrial HDPE Plastic Rolls across India.
               </p>
 
               <div className="pt-2 text-xs text-gray-400 font-semibold space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-jute" />
+                  <span>40+ Years Business Legacy (Since 1985)</span>
+                </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-jute" />
                   <span>GSTIN Registered Commercial Merchant</span>
@@ -187,15 +192,15 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
 
           </div>
 
-          {/* Bottom Copyright Bar */}
+          {/* Legacy Copyright Line */}
           <div className="pt-12 mt-12 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
             <div>
-              © {new Date().getFullYear()} <strong className="text-gray-200">Magarajothi Traders</strong>. All Rights Reserved.
+              © {new Date().getFullYear()} <strong className="text-gray-200">Magarajothi Traders</strong>. Proudly serving the agricultural industry since 1985. All Rights Reserved.
             </div>
             <div className="flex items-center space-x-4 font-medium">
-              <span>GST Registered</span>
+              <span>Est. 1985</span>
               <span>•</span>
-              <span>100% Eco Biodegradable</span>
+              <span>GST Registered</span>
               <span>•</span>
               <span>Tamil Nadu, India</span>
             </div>

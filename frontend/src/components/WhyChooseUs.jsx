@@ -9,8 +9,8 @@ const reasons = [
   },
   {
     icon: DollarSign,
-    title: 'Direct Mill Rates',
-    description: 'Wholesale B2B pricing with transparent bulk discounts for agricultural mills, exporters, and commercial traders.'
+    title: 'Direct Mill Rates Since 1985',
+    description: 'Wholesale B2B pricing with transparent bulk discounts, leveraging relationships built since 1985 to secure mill rates with zero quality compromises.'
   },
   {
     icon: Award,
@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
         <div className="text-center max-w-4xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jute-light/20 text-jute-dark text-sm font-bold uppercase tracking-wider">
             <Leaf size={16} className="text-jute-dark" />
-            <span>The Magarajothi Advantage</span>
+            <span>The Magarajothi Advantage • Est. 1985</span>
           </div>
 
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
           </h2>
 
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mt-4 leading-relaxed font-normal">
-            Delivering uncompromised jute quality, food-grade eco compliance, and reliable commercial merchant trading.
+            Delivering 40+ years of uncompromised jute quality, food-grade eco compliance, and reliable merchant trading since 1985.
           </p>
         </div>
 
