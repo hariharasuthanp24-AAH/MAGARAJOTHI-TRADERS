@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { submitInquiryApi } from '../api/client';
-import { Send, CheckCircle2, AlertCircle, Loader2, Phone, Mail, MapPin, Building, ShieldCheck } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2, Phone, Mail, MapPin, Building, ShieldCheck, Leaf } from 'lucide-react';
 
 const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
   const [formData, setFormData] = useState({
@@ -10,25 +10,21 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
     company: '',
     productCategory: initialCategory || 'Jute',
     productName: initialProduct ? initialProduct.name : 'General Inquiry',
-    quantity: '1000 Bags',
+    quantity: '500 Bags',
     message: '',
   });
 
+  const [status, setStatus] = useState({ loading: false, success: false, error: null });
+
   useEffect(() => {
-    if (initialCategory) {
-      setFormData((prev) => ({ ...prev, productCategory: initialCategory }));
-    }
     if (initialProduct) {
       setFormData((prev) => ({
         ...prev,
+        productCategory: initialProduct.category || 'Jute',
         productName: initialProduct.name,
-        productCategory: initialProduct.category || prev.productCategory,
       }));
     }
-  }, [initialProduct, initialCategory]);
-
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState({ type: null, message: '' });
+  }, [initialProduct]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,143 +33,126 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setStatus({ type: null, message: '' });
+    setStatus({ loading: true, success: false, error: null });
 
     try {
-      const result = await submitInquiryApi(formData);
-      if (result.success) {
-        setStatus({
-          type: 'success',
-          message: result.message || 'Requirement submitted successfully! Our sales team will get back to you shortly.',
-        });
-        // Reset non-essential fields
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          productCategory: 'Jute',
-          productName: 'General Inquiry',
-          quantity: '1000 Bags',
-          message: '',
-        });
-      } else {
-        setStatus({
-          type: 'error',
-          message: result.message || 'Could not submit inquiry. Please try again.',
-        });
-      }
-    } catch (err) {
-      setStatus({
-        type: 'error',
-        message: err.response?.data?.message || 'Server error while submitting requirement. Please try calling us directly.',
+      await submitInquiryApi(formData);
+      setStatus({ loading: false, success: true, error: null });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        productCategory: 'Jute',
+        productName: 'General Inquiry',
+        quantity: '500 Bags',
+        message: '',
       });
-    } finally {
-      setLoading(false);
+    } catch (err) {
+      console.error('Inquiry Submission Error:', err);
+      setStatus({
+        loading: false,
+        success: false,
+        error: err.response?.data?.message || 'Failed to submit inquiry. Please try calling directly.',
+      });
     }
   };
 
   return (
-    <section id="contact-section" className="py-20 bg-jute-50/60 relative">
+    <section id="inquiry-form-section" className="py-20 bg-nature-canvas relative font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="bg-white rounded-3xl shadow-xl border border-jute-300/60 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
           
-          {/* Left Column: Direct Contact & Location info */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2 bg-jute-100 text-jute-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                <ShieldCheck className="w-4 h-4 text-jute-600" />
-                <span>DIRECT MERCHANT DESK</span>
+          {/* Left Dark Forest Sidebar */}
+          <div className="lg:col-span-5 bg-gradient-to-b from-forest-950 via-forest-900 to-[#2C1E14] text-white p-8 sm:p-12 flex flex-col justify-between space-y-8 relative overflow-hidden">
+            
+            <div className="space-y-4 relative z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-jute-500/20 border border-jute-400/30 text-jute-300 text-xs font-bold uppercase tracking-wider">
+                <Leaf size={14} className="text-jute-400" />
+                <span>Commercial Inquiry Desk</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
-                Submit Your Requirements
-              </h2>
+              <h3 className="font-serif text-3xl font-extrabold text-amber-50 tracking-tight leading-snug">
+                Request Factory Quote & Custom <span className="text-jute-400">Jute Samples</span>
+              </h3>
 
-              <p className="text-slate-600 text-base leading-relaxed">
-                Whether you need a full export container of hydrocarbon-free jute sacks or a bulk order of HDPE plastic gunny bags, send us your specifications for instant wholesale quotes.
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Connect directly with our commercial team in Dharapuram, Tamil Nadu for bulk pricing on Jute Bags, Nano Bags, Jute Thread, 2nd Jute Bags & Plastic Rolls.
               </p>
             </div>
 
-            {/* Quick Contact Cards */}
-            <div className="space-y-4">
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                <div className="w-11 h-11 rounded-xl bg-jute-100 text-jute-700 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-jute-dark" />
-                </div>
+            {/* Direct Contact Info */}
+            <div className="space-y-4 text-xs relative z-10 pt-4 border-t border-white/10">
+              <div className="flex items-start space-x-3 text-slate-200">
+                <Phone className="w-4 h-4 text-jute-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-slate-400 uppercase">Sales & Inquiry Phone</h4>
-                  <a href="tel:+919025236106" className="text-base font-extrabold text-navy-900 hover:text-jute-dark block mt-0.5">
-                    +91 9025236106
+                  <span className="text-slate-400 block">Phone & WhatsApp:</span>
+                  <a href="tel:+919025236106" className="font-bold text-white hover:text-jute-300 transition-colors">
+                    +91 90252 36106
                   </a>
-                  <span className="text-xs text-slate-500">Mon - Sat: 9:00 AM - 8:00 PM IST</span>
                 </div>
               </div>
 
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                <div className="w-11 h-11 rounded-xl bg-jute-100 text-jute-700 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-jute-dark" />
-                </div>
+              <div className="flex items-start space-x-3 text-slate-200">
+                <Mail className="w-4 h-4 text-jute-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-slate-400 uppercase">Email Trade Desk</h4>
-                  <a href="mailto:mjttraders.24@gmail.com" className="text-base font-extrabold text-navy-900 hover:text-jute-dark block mt-0.5">
+                  <span className="text-slate-400 block">Email Inquiry:</span>
+                  <a href="mailto:mjttraders.24@gmail.com" className="font-bold text-white hover:text-jute-300 transition-colors">
                     mjttraders.24@gmail.com
                   </a>
-                  <span className="text-xs text-slate-500">Official RFQ & Quotations</span>
                 </div>
               </div>
 
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                <div className="w-11 h-11 rounded-xl bg-jute-100 text-jute-700 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-jute-dark" />
-                </div>
+              <div className="flex items-start space-x-3 text-slate-200">
+                <MapPin className="w-4 h-4 text-jute-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-slate-400 uppercase">Commercial Address</h4>
-                  <p className="text-sm font-bold text-navy-900 mt-0.5">
-                    Magarajothi Traders
-                  </p>
-                  <p className="text-xs text-slate-600">
-                    122, Cholakadai St, Dharapuram
-                  </p>
+                  <span className="text-slate-400 block">Main Trading Depot:</span>
+                  <span className="font-semibold text-slate-200">122, Cholakadai St, Dharapuram, Tirupur Dist, TN</span>
                 </div>
               </div>
+            </div>
+
+            <div className="pt-2 relative z-10">
+              <span className="text-[11px] text-jute-400 font-bold flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-jute-400" /> Direct Mill Sourcing • ISO Merchant Certified
+              </span>
             </div>
 
           </div>
 
-          {/* Right Column: Form Container */}
-          <div className="lg:col-span-7">
-            <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl relative">
-              
-              <h3 className="text-2xl font-extrabold text-navy-900 mb-6">
-                Request a Custom Bulk Quote
-              </h3>
-
-              {status.type && (
-                <div
-                  className={`p-4 rounded-xl mb-6 flex items-start space-x-3 text-sm ${
-                    status.type === 'success'
-                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                      : 'bg-rose-50 text-rose-800 border border-rose-200'
-                  }`}
-                >
-                  {status.type === 'success' ? (
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  ) : (
-                    <AlertCircle className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" />
-                  )}
-                  <div className="font-medium">{status.message}</div>
+          {/* Right Form Area */}
+          <div className="lg:col-span-7 p-8 sm:p-12 bg-white">
+            
+            {status.success ? (
+              <div className="py-12 text-center space-y-4">
+                <div className="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto border-2 border-emerald-300">
+                  <CheckCircle2 size={36} />
                 </div>
-              )}
-
+                <h4 className="font-serif text-2xl font-bold text-forest-900">Inquiry Submitted Successfully!</h4>
+                <p className="text-slate-600 text-sm max-w-md mx-auto">
+                  Thank you for contacting Magarajothi Traders. Our commercial desk manager will get back to you within 2 business hours.
+                </p>
+                <button
+                  onClick={() => setStatus({ loading: false, success: false, error: null })}
+                  className="gold-gradient-btn text-white px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow"
+                >
+                  Submit Another Requirement
+                </button>
+              </div>
+            ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 
-                {/* Name & Phone */}
+                {status.error && (
+                  <div className="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-xs rounded-xl flex items-center space-x-2">
+                    <AlertCircle size={16} className="shrink-0" />
+                    <span>{status.error}</span>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                    <label className="block text-xs font-bold text-forest-900 uppercase mb-1">
                       Your Full Name <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -183,13 +162,13 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
                       placeholder="e.g. M. Sundaram"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-jute-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                      Phone / Mobile Number <span className="text-rose-500">*</span>
+                    <label className="block text-xs font-bold text-forest-900 uppercase mb-1">
+                      Phone / WhatsApp <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="tel"
@@ -198,54 +177,52 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-jute-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
                     />
                   </div>
                 </div>
 
-                {/* Email & Company */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                    <label className="block text-xs font-bold text-forest-900 uppercase mb-1">
                       Email Address <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="email"
                       name="email"
                       required
-                      placeholder="name@company.com"
+                      placeholder="mjttraders.24@gmail.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-jute-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                      Business / Mill Name
+                    <label className="block text-xs font-bold text-forest-900 uppercase mb-1">
+                      Company / Rice Mill Name
                     </label>
                     <input
                       type="text"
                       name="company"
-                      placeholder="e.g. Sri Lakshmi Rice Mill"
+                      placeholder="e.g. Sri Krishna Rice Mill"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-jute-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
                     />
                   </div>
                 </div>
 
-                {/* Product Interest & Quantity */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                    <label className="block text-xs font-bold text-forest-900 uppercase mb-1">
                       Product Category Interest
                     </label>
                     <select
                       name="productCategory"
                       value={formData.productCategory}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition font-medium"
+                      className="w-full bg-[#FAF6F0] border border-jute-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition font-semibold"
                     >
                       <option value="Jute">🌾 Jute Bags (A-Twill, B-Twill, Hessian)</option>
                       <option value="Nano Bags">👜 Nano Bags (Mini Eco & Promotional Bags)</option>
@@ -258,78 +235,56 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                    <label className="block text-xs font-bold text-forest-900 uppercase mb-1">
                       Estimated Quantity Needed
                     </label>
-                    <select
+                    <input
+                      type="text"
                       name="quantity"
+                      placeholder="e.g. 1000 Bags / 5 Rolls"
                       value={formData.quantity}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition font-medium"
-                    >
-                      <option value="500 Bags">500 Bags (Trial Order)</option>
-                      <option value="1000 Bags">1,000 Bags</option>
-                      <option value="5000 Bags">5,000 Bags</option>
-                      <option value="10000+ Bags">10,000+ Bags (Bulk Wholesale)</option>
-                      <option value="1 Container (20ft)">1 Full 20ft Export Container</option>
-                      <option value="1 Container (40ft)">1 Full 40ft Export Container</option>
-                    </select>
+                      className="w-full bg-[#FAF6F0] border border-jute-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
+                    />
                   </div>
                 </div>
 
-                {/* Specific Product Item */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                    Specific Product Interested In
-                  </label>
-                  <input
-                    type="text"
-                    name="productName"
-                    value={formData.productName}
-                    onChange={handleChange}
-                    placeholder="e.g. A-Twill Food-Grade Jute Bag 50kg"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
-                  />
-                </div>
-
-                {/* Message / Specifications */}
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                    Requirement Message & Custom Specs <span className="text-rose-500">*</span>
+                  <label className="block text-xs font-bold text-forest-900 uppercase mb-1">
+                    Specific Requirements or Specifications <span className="text-rose-500">*</span>
                   </label>
                   <textarea
                     name="message"
-                    rows="4"
+                    rows="3"
                     required
-                    placeholder="Please specify dimensions, GSM requirements, logo printing details, delivery destination, or any special specifications..."
+                    placeholder="Provide details on bag dimensions, print design, GSM, or delivery location..."
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
+                    className="w-full bg-[#FAF6F0] border border-jute-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute-500 focus:bg-white transition"
                   ></textarea>
                 </div>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full bg-gradient-to-r from-jute-500 to-hessian-500 hover:from-jute-600 hover:to-hessian-700 text-white font-extrabold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 text-base disabled:opacity-50"
+                  disabled={status.loading}
+                  className="w-full gold-gradient-btn text-white font-bold py-3.5 px-6 rounded-xl text-xs uppercase tracking-wider shadow-lg flex items-center justify-center space-x-2"
                 >
-                  {loading ? (
+                  {status.loading ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>Submitting Requirement...</span>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Sending Inquiry...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5" />
+                      <Send className="w-4 h-4" />
                       <span>Submit Requirement Inquiry</span>
                     </>
                   )}
                 </button>
 
               </form>
+            )}
 
-            </div>
           </div>
 
         </div>

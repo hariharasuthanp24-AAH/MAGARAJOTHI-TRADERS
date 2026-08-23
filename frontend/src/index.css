@@ -4,32 +4,60 @@
 
 @layer base {
   body {
-    @apply bg-brand-chalk text-gray-800 antialiased font-sans;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading text-brand-navy font-bold;
+    background-color: #FAF6F0;
+    color: #1E293B;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 }
 
-/* Custom Scrollbar for a polished feel */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
-::-webkit-scrollbar-thumb {
-  background: #8B5E3C; 
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #C59B27; 
-}
-
-/* Glassmorphism Navigation */
+/* Premium Nature Jute Utility Classes */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(250, 246, 240, 0.94);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+}
+
+.nature-glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(197, 155, 39, 0.18);
+}
+
+.nature-glass-card:hover {
+  border-color: rgba(197, 155, 39, 0.45);
+  box-shadow: 0 15px 35px -5px rgba(14, 38, 27, 0.12);
+}
+
+.jute-border-glow {
+  border: 1.5px solid #C59B27;
+  box-shadow: 0 0 15px rgba(197, 155, 39, 0.25);
+}
+
+.gold-gradient-btn {
+  background: linear-gradient(135deg, #B8860B 0%, #7E4E11 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gold-gradient-btn:hover {
+  background: linear-gradient(135deg, #C59B27 0%, #996515 100%);
+  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.35);
+  transform: translateY(-1.5px);
+}
+
+.forest-gradient-btn {
+  background: linear-gradient(135deg, #0E261B 0%, #1B3B2B 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.forest-gradient-btn:hover {
+  background: linear-gradient(135deg, #1B3B2B 0%, #2E5A44 100%);
+  box-shadow: 0 6px 20px rgba(14, 38, 27, 0.35);
+  transform: translateY(-1.5px);
+}
+
+/* Subtle Organic Canvas Pattern */
+.bg-nature-canvas {
+  background-color: #FAF6F0;
+  background-image: radial-gradient(#D8BF9A 0.65px, transparent 0.65px), radial-gradient(#D8BF9A 0.65px, #FAF6F0 0.65px);
+  background-size: 26px 26px;
+  background-position: 0 0, 13px 13px;
 }
