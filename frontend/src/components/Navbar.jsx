@@ -51,7 +51,7 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300 font-sans shadow-sm">
-      {/* Refined Navigation Container */}
+      {/* Navigation Container */}
       <nav className={`transition-all duration-300 ${isScrolled ? 'bg-white/98 backdrop-blur-md py-3 border-b border-gray-200 shadow-md' : 'bg-[#FAF6F0] py-3.5 border-b border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center h-14 md:h-16">
           
@@ -77,7 +77,7 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
             </div>
           </Link>
 
-          {/* Refined Desktop Navigation Links */}
+          {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-7 md:gap-8 font-semibold text-sm md:text-base text-gray-800">
             <Link to="/" className={`transition-colors py-1 ${location.pathname === '/' ? 'text-jute-dark font-bold border-b-2 border-jute-dark' : 'hover:text-jute-dark'}`}>
               Home
@@ -86,46 +86,114 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
               About Us
             </button>
 
-            {/* Products Dropdown */}
+            {/* Products Dropdown (High Z-Index & Proper Spacing) */}
             <div className="relative" onMouseLeave={() => setProductDropdownOpen(false)}>
               <button 
                 onMouseEnter={() => setProductDropdownOpen(true)}
                 onClick={() => scrollToSection('products-section')}
-                className="flex items-center gap-1 hover:text-jute-dark transition-colors py-2"
+                className="flex items-center gap-1.5 hover:text-jute-dark transition-colors py-2 font-semibold"
               >
                 <span>Products Catalog</span>
                 <ChevronDown size={16} className={`transition-transform duration-200 ${productDropdownOpen ? 'rotate-180 text-jute-dark' : ''}`} />
               </button>
 
+              {/* Absolute Dropdown Container (z-50, w-72, proper flex spacing) */}
               {productDropdownOpen && (
-                <div className="absolute top-full left-0 w-64 bg-white/98 backdrop-blur-md shadow-xl border border-gray-200 rounded-xl py-2 mt-1 z-50 flex flex-col animate-in fade-in duration-150">
-                  <button onClick={() => handleCategoryClick('All')} className="text-left px-4 py-2.5 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-bold text-gray-900 border-b border-gray-100">
-                    🌱 All Eco Products Catalog
+                <div className="absolute top-full left-0 z-50 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 p-2 mt-2 flex flex-col gap-1 animate-in fade-in duration-150">
+                  
+                  {/* All Products Header Option */}
+                  <button 
+                    onClick={() => handleCategoryClick('All')} 
+                    className="flex items-center justify-between w-full px-4 py-3 hover:bg-gray-50 rounded-lg transition-colors text-left border-b border-gray-100"
+                  >
+                    <div className="flex items-center gap-3 text-gray-900 text-sm font-bold whitespace-nowrap">
+                      <span>🌱</span>
+                      <span>All Products Catalog</span>
+                    </div>
+                    <span className="text-xs px-2.5 py-1 rounded-full font-bold bg-jute-light/20 text-jute-dark whitespace-nowrap">
+                      Full
+                    </span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Jute')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
-                    <span>🌾 Jute Bags</span>
-                    <span className="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full font-bold">Eco</span>
+
+                  {/* Category Options with Flex Spacing */}
+                  <button 
+                    onClick={() => handleCategoryClick('Jute')} 
+                    className="flex items-center justify-between w-full px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors group cursor-pointer text-left"
+                  >
+                    <div className="flex items-center gap-3 text-gray-800 text-sm font-semibold whitespace-nowrap group-hover:text-jute-dark">
+                      <span>🌾</span>
+                      <span>Jute Bags</span>
+                    </div>
+                    <span className="text-xs px-2.5 py-1 rounded-full font-bold bg-amber-100 text-amber-900 whitespace-nowrap">
+                      Eco
+                    </span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Nano Bags')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
-                    <span>👜 Nano Bags</span>
-                    <span className="text-[10px] bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full font-bold">Mini</span>
+
+                  <button 
+                    onClick={() => handleCategoryClick('Nano Bags')} 
+                    className="flex items-center justify-between w-full px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors group cursor-pointer text-left"
+                  >
+                    <div className="flex items-center gap-3 text-gray-800 text-sm font-semibold whitespace-nowrap group-hover:text-jute-dark">
+                      <span>👜</span>
+                      <span>Nano Bags</span>
+                    </div>
+                    <span className="text-xs px-2.5 py-1 rounded-full font-bold bg-emerald-100 text-emerald-900 whitespace-nowrap">
+                      Mini
+                    </span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Jute Thread')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
-                    <span>🧵 Jute Thread</span>
-                    <span className="text-[10px] bg-orange-100 text-orange-900 px-2 py-0.5 rounded-full font-bold">Twine</span>
+
+                  <button 
+                    onClick={() => handleCategoryClick('Jute Thread')} 
+                    className="flex items-center justify-between w-full px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors group cursor-pointer text-left"
+                  >
+                    <div className="flex items-center gap-3 text-gray-800 text-sm font-semibold whitespace-nowrap group-hover:text-jute-dark">
+                      <span>🧵</span>
+                      <span>Jute Thread</span>
+                    </div>
+                    <span className="text-xs px-2.5 py-1 rounded-full font-bold bg-orange-100 text-orange-900 whitespace-nowrap">
+                      Twine
+                    </span>
                   </button>
-                  <button onClick={() => handleCategoryClick('2nd Jute Bags')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
-                    <span>♻️ 2nd Jute Bags</span>
-                    <span className="text-[10px] bg-stone-100 text-stone-900 px-2 py-0.5 rounded-full font-bold">Used</span>
+
+                  <button 
+                    onClick={() => handleCategoryClick('2nd Jute Bags')} 
+                    className="flex items-center justify-between w-full px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors group cursor-pointer text-left"
+                  >
+                    <div className="flex items-center gap-3 text-gray-800 text-sm font-semibold whitespace-nowrap group-hover:text-jute-dark">
+                      <span>♻️</span>
+                      <span>2nd Jute Bags</span>
+                    </div>
+                    <span className="text-xs px-2.5 py-1 rounded-full font-bold bg-stone-100 text-stone-900 whitespace-nowrap">
+                      Used
+                    </span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Plastic')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
-                    <span>🏗️ Plastic Bags</span>
-                    <span className="text-[10px] bg-sky-100 text-sky-900 px-2 py-0.5 rounded-full font-bold">HDPE</span>
+
+                  <button 
+                    onClick={() => handleCategoryClick('Plastic')} 
+                    className="flex items-center justify-between w-full px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors group cursor-pointer text-left"
+                  >
+                    <div className="flex items-center gap-3 text-gray-800 text-sm font-semibold whitespace-nowrap group-hover:text-jute-dark">
+                      <span>🏗️</span>
+                      <span>Plastic Bags</span>
+                    </div>
+                    <span className="text-xs px-2.5 py-1 rounded-full font-bold bg-sky-100 text-sky-900 whitespace-nowrap">
+                      HDPE
+                    </span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Plastic Roll')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
-                    <span>🌀 Plastic Roll</span>
-                    <span className="text-[10px] bg-indigo-100 text-indigo-900 px-2 py-0.5 rounded-full font-bold">Roll</span>
+
+                  <button 
+                    onClick={() => handleCategoryClick('Plastic Roll')} 
+                    className="flex items-center justify-between w-full px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors group cursor-pointer text-left"
+                  >
+                    <div className="flex items-center gap-3 text-gray-800 text-sm font-semibold whitespace-nowrap group-hover:text-jute-dark">
+                      <span>🌀</span>
+                      <span>Plastic Roll</span>
+                    </div>
+                    <span className="text-xs px-2.5 py-1 rounded-full font-bold bg-indigo-100 text-indigo-900 whitespace-nowrap">
+                      Roll
+                    </span>
                   </button>
+
                 </div>
               )}
             </div>
@@ -138,7 +206,7 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
             </Link>
           </div>
 
-          {/* Refined Action Buttons */}
+          {/* Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             {onOpenAdminModal && (
               <button 
