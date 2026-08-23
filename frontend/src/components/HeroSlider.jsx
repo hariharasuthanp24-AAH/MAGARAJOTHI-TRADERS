@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ChevronDown, ArrowRight, ShieldCheck, Leaf, Award, Truck } from 'lucide-react';
+import { ChevronDown, ArrowRight, ShieldCheck, Leaf, Award, Truck } from 'lucide-react';
 
 const slides = [
   {
@@ -43,9 +43,6 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
     }, 6000);
     return () => clearInterval(timer);
   }, []);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   const handleScrollDown = () => {
     const nextSection = document.getElementById('about-section') || document.getElementById('products-section');
@@ -123,13 +120,13 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
 
           </div>
 
-          {/* Visual Card Slider Container */}
+          {/* Static Clean Universal Logo Placeholder Image Card */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-white p-8 h-80 sm:h-96 flex items-center justify-center">
               <img
                 src="/logo.png"
-                alt={activeSlide.title}
-                className="max-w-full max-h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105 drop-shadow-md"
+                alt="Magarajothi Traders Company Logo"
+                className="max-w-full max-h-full object-contain p-6 drop-shadow-md"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none" />
               
@@ -137,22 +134,6 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
                 <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200 text-xs shadow-sm">
                   <span className="text-jute-dark font-bold block">{activeSlide.category} Range</span>
                   <span className="text-gray-700 font-medium">Export Quality</span>
-                </div>
-
-                {/* Arrow Controls */}
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={prevSlide}
-                    className="w-9 h-9 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
-                  >
-                    <ChevronLeft size={18} />
-                  </button>
-                  <button
-                    onClick={nextSlide}
-                    className="w-9 h-9 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
-                  >
-                    <ChevronRight size={18} />
-                  </button>
                 </div>
               </div>
             </div>
