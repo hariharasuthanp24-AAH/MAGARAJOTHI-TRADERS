@@ -51,10 +51,10 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
           </p>
         </div>
 
-        {/* Scaled Filters & Search Bar Container */}
+        {/* Filters & Search Bar Container */}
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 mb-14 flex flex-col lg:flex-row items-center justify-between gap-6">
           
-          {/* Robust Filter Buttons (px-8 py-3 text-base) */}
+          {/* Robust Filter Buttons */}
           <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
             {['All', 'Jute', 'Nano Bags', 'Jute Thread', '2nd Jute Bags', 'Plastic', 'Plastic Roll'].map((cat) => (
               <button
@@ -71,15 +71,15 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
             ))}
           </div>
 
-          {/* Scaled Search Bar */}
+          {/* Corrected Search Bar Component (No Icon Overlap) */}
           <div className="relative w-full lg:w-96">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
             <input
               type="text"
               placeholder="Search products or specs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-[#FAF6F0] border border-gray-300 rounded-xl pl-13 pr-5 py-3.5 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+              className="w-full bg-white border border-gray-300 rounded-xl pl-12 pr-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:border-jute-dark focus:ring-1 focus:ring-jute-dark shadow-sm transition-colors"
             />
           </div>
 
@@ -92,7 +92,7 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
             <p className="text-lg font-semibold text-gray-700">Loading catalog items...</p>
           </div>
         ) : filteredProducts.length > 0 ? (
-          /* Products Grid with Generous Gap Spacing (gap-8 md:gap-10) */
+          /* Products Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
             {filteredProducts.map((product) => (
               <ProductCard
@@ -104,7 +104,7 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
             ))}
           </div>
         ) : (
-          /* Scaled Empty Search Fallback */
+          /* Empty Search Fallback */
           <div className="bg-white p-16 rounded-3xl text-center border border-gray-200 max-w-xl mx-auto space-y-6 shadow-sm">
             <Sparkles className="w-16 h-16 text-jute-dark mx-auto" />
             <h3 className="text-2xl font-bold text-gray-900">No products match your filter</h3>
