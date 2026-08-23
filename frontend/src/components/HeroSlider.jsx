@@ -50,65 +50,65 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
   const activeSlide = slides[currentSlide];
 
   return (
-    <section className="relative bg-[#FAF6F0] overflow-hidden py-20 md:py-28 font-sans border-b border-gray-200">
+    <section className="relative bg-[#FAF6F0] overflow-hidden py-16 md:py-20 font-sans border-b border-gray-200">
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Scaled Text Content */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          {/* Refined Text Content */}
+          <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
             
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 bg-jute-light/20 text-jute-dark font-bold px-4 py-1.5 rounded-full text-xs md:text-sm tracking-wide uppercase">
-              <Leaf size={16} className="text-jute-dark" />
+            <div className="inline-flex items-center gap-2 bg-jute-light/20 text-jute-dark font-bold px-3.5 py-1 rounded-full text-xs tracking-wide uppercase">
+              <Leaf size={14} className="text-jute-dark" />
               <span>{activeSlide.badge}</span>
             </div>
 
-            {/* H1 Main Heading: text-5xl md:text-6xl lg:text-7xl font-heading font-bold */}
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900 tracking-tight">
+            {/* H1 Main Heading */}
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 tracking-tight">
               {activeSlide.title}
             </h1>
 
-            {/* Subheading: text-xl md:text-2xl text-gray-700 leading-relaxed */}
-            <p className="text-xl md:text-2xl text-gray-700 font-normal leading-relaxed max-w-3xl">
+            {/* Subheading */}
+            <p className="text-gray-700 text-sm sm:text-base font-normal leading-relaxed max-w-2xl">
               {activeSlide.subtitle}
             </p>
 
-            {/* Buttons / CTAs: px-8 py-3.5 text-base md:text-lg font-bold */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+            {/* Refined CTAs */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
               <button
                 onClick={() => {
                   if (onSelectCategory) onSelectCategory(activeSlide.category);
                   const el = document.getElementById('products-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-jute-dark text-white hover:bg-jute font-bold rounded-xl px-8 py-3.5 transition-colors shadow-md text-base md:text-lg tracking-wider uppercase flex items-center gap-2"
+                className="bg-jute-dark text-white hover:bg-jute font-bold rounded-lg px-6 py-3 transition-colors shadow-md text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2"
               >
                 <span>{activeSlide.primaryCta}</span>
-                <ArrowRight size={20} />
+                <ArrowRight size={16} />
               </button>
 
               <button
                 onClick={() => onOpenInquiry && onOpenInquiry(null, activeSlide.category)}
-                className="border-2 border-jute-dark text-jute-dark hover:bg-jute-dark hover:text-white font-bold rounded-xl px-8 py-3.5 text-base md:text-lg tracking-wider uppercase transition-colors"
+                className="border-2 border-jute-dark text-jute-dark hover:bg-jute-dark hover:text-white font-bold rounded-lg px-6 py-2.5 text-xs sm:text-sm tracking-wider uppercase transition-colors"
               >
                 {activeSlide.secondaryCta}
               </button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="pt-8 border-t border-gray-200 grid grid-cols-3 gap-4 text-gray-800 font-semibold text-base md:text-lg">
-              <div className="flex items-center gap-2.5 justify-center lg:justify-start">
-                <ShieldCheck className="text-jute-dark w-6 h-6 shrink-0" />
-                <span>ISO Certified Merchant</span>
+            <div className="pt-6 border-t border-gray-200 grid grid-cols-3 gap-3 text-gray-800 font-semibold text-xs sm:text-sm">
+              <div className="flex items-center gap-2 justify-center lg:justify-start">
+                <ShieldCheck className="text-jute-dark w-4.5 h-4.5 shrink-0" />
+                <span>ISO Certified</span>
               </div>
-              <div className="flex items-center gap-2.5 justify-center lg:justify-start">
-                <Award className="text-jute-dark w-6 h-6 shrink-0" />
+              <div className="flex items-center gap-2 justify-center lg:justify-start">
+                <Award className="text-jute-dark w-4.5 h-4.5 shrink-0" />
                 <span>Direct Mill Rates</span>
               </div>
-              <div className="flex items-center gap-2.5 justify-center lg:justify-start">
-                <Truck className="text-jute-dark w-6 h-6 shrink-0" />
-                <span>Pan-India & Export</span>
+              <div className="flex items-center gap-2 justify-center lg:justify-start">
+                <Truck className="text-jute-dark w-4.5 h-4.5 shrink-0" />
+                <span>Pan-India Export</span>
               </div>
             </div>
 
@@ -116,33 +116,33 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
 
           {/* Visual Card Slider */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 group h-88 sm:h-104">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 group h-80 sm:h-96">
               <img
                 src={activeSlide.image}
                 alt={activeSlide.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/65 via-transparent to-transparent" />
               
-              <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-                <div className="bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-xl border border-gray-200 text-sm shadow-md">
+              <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
+                <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200 text-xs shadow-sm">
                   <span className="text-jute-dark font-bold block">{activeSlide.category} Range</span>
-                  <span className="text-gray-700 font-medium">High Strength Export Quality</span>
+                  <span className="text-gray-700 font-medium">Export Quality</span>
                 </div>
 
                 {/* Arrow Controls */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={prevSlide}
-                    className="w-10 h-10 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
+                    className="w-9 h-9 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
                   >
-                    <ChevronLeft size={22} />
+                    <ChevronLeft size={18} />
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="w-10 h-10 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
+                    className="w-9 h-9 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
                   >
-                    <ChevronRight size={22} />
+                    <ChevronRight size={18} />
                   </button>
                 </div>
               </div>

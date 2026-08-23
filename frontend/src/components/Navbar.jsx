@@ -51,34 +51,34 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300 font-sans shadow-sm">
-      {/* Prominent Header Wrapper (py-4 md:py-6) */}
-      <nav className={`transition-all duration-300 ${isScrolled ? 'bg-white/98 backdrop-blur-md py-4 md:py-5 border-b border-gray-200 shadow-md' : 'bg-[#FAF6F0] py-4 md:py-6 border-b border-gray-200'}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center h-16 md:h-20">
+      {/* Refined Navigation Container */}
+      <nav className={`transition-all duration-300 ${isScrolled ? 'bg-white/98 backdrop-blur-md py-3 border-b border-gray-200 shadow-md' : 'bg-[#FAF6F0] py-3.5 border-b border-gray-200'}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center h-14 md:h-16">
           
-          {/* Logo Container (h-16 md:h-20) */}
-          <Link to="/" className="flex items-center gap-4 md:gap-5 text-left group h-16 md:h-20">
+          {/* Logo Area */}
+          <Link to="/" className="flex items-center gap-3.5 text-left group h-14 md:h-16">
             <div className="relative shrink-0">
               <img 
                 src="/logo.png" 
                 alt="Magarajothi Traders Logo" 
-                className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover shadow-lg group-hover:scale-105 transition-transform duration-300 border-2 border-jute-dark" 
+                className="w-11 h-11 md:w-13 md:h-13 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform duration-300 border-2 border-jute-dark" 
               />
-              <div className="absolute -bottom-1 -right-1 bg-jute-dark text-white p-1 rounded-full border-2 border-white shadow">
-                <Leaf size={14} />
+              <div className="absolute -bottom-1 -right-1 bg-jute-dark text-white p-0.5 rounded-full border border-white shadow">
+                <Leaf size={10} />
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-heading text-2xl md:text-3xl font-black text-gray-900 leading-tight group-hover:text-jute-dark transition-colors tracking-tight">
+              <span className="font-heading text-xl md:text-2xl font-black text-gray-900 leading-tight group-hover:text-jute-dark transition-colors tracking-tight">
                 MAGARAJOTHI
               </span>
-              <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-jute-dark">
-                TRADERS <span className="text-xs text-gray-500 font-medium">| NATURE JUTE</span>
+              <span className="text-[11px] font-bold tracking-widest uppercase text-jute-dark">
+                TRADERS <span className="text-[10px] text-gray-500 font-medium">| NATURE JUTE</span>
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-8 md:gap-10 font-semibold text-base md:text-lg text-gray-800">
+          {/* Refined Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center gap-7 md:gap-8 font-semibold text-sm md:text-base text-gray-800">
             <Link to="/" className={`transition-colors py-1 ${location.pathname === '/' ? 'text-jute-dark font-bold border-b-2 border-jute-dark' : 'hover:text-jute-dark'}`}>
               Home
             </Link>
@@ -91,40 +91,40 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
               <button 
                 onMouseEnter={() => setProductDropdownOpen(true)}
                 onClick={() => scrollToSection('products-section')}
-                className="flex items-center gap-1.5 hover:text-jute-dark transition-colors py-2"
+                className="flex items-center gap-1 hover:text-jute-dark transition-colors py-2"
               >
                 <span>Products Catalog</span>
-                <ChevronDown size={20} className={`transition-transform duration-200 ${productDropdownOpen ? 'rotate-180 text-jute-dark' : ''}`} />
+                <ChevronDown size={16} className={`transition-transform duration-200 ${productDropdownOpen ? 'rotate-180 text-jute-dark' : ''}`} />
               </button>
 
               {productDropdownOpen && (
-                <div className="absolute top-full left-0 w-72 bg-white/98 backdrop-blur-md shadow-2xl border border-gray-200 rounded-2xl py-3 mt-1 z-50 flex flex-col animate-in fade-in duration-150">
-                  <button onClick={() => handleCategoryClick('All')} className="text-left px-5 py-3 text-base hover:bg-jute-light/10 hover:text-jute-dark font-bold text-gray-900 border-b border-gray-100">
+                <div className="absolute top-full left-0 w-64 bg-white/98 backdrop-blur-md shadow-xl border border-gray-200 rounded-xl py-2 mt-1 z-50 flex flex-col animate-in fade-in duration-150">
+                  <button onClick={() => handleCategoryClick('All')} className="text-left px-4 py-2.5 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-bold text-gray-900 border-b border-gray-100">
                     🌱 All Eco Products Catalog
                   </button>
-                  <button onClick={() => handleCategoryClick('Jute')} className="text-left px-5 py-3 text-base hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
+                  <button onClick={() => handleCategoryClick('Jute')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
                     <span>🌾 Jute Bags</span>
-                    <span className="text-xs bg-amber-100 text-amber-900 px-2.5 py-0.5 rounded-full font-bold">Eco</span>
+                    <span className="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full font-bold">Eco</span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Nano Bags')} className="text-left px-5 py-3 text-base hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
+                  <button onClick={() => handleCategoryClick('Nano Bags')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
                     <span>👜 Nano Bags</span>
-                    <span className="text-xs bg-emerald-100 text-emerald-900 px-2.5 py-0.5 rounded-full font-bold">Mini</span>
+                    <span className="text-[10px] bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full font-bold">Mini</span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Jute Thread')} className="text-left px-5 py-3 text-base hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
+                  <button onClick={() => handleCategoryClick('Jute Thread')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
                     <span>🧵 Jute Thread</span>
-                    <span className="text-xs bg-orange-100 text-orange-900 px-2.5 py-0.5 rounded-full font-bold">Twine</span>
+                    <span className="text-[10px] bg-orange-100 text-orange-900 px-2 py-0.5 rounded-full font-bold">Twine</span>
                   </button>
-                  <button onClick={() => handleCategoryClick('2nd Jute Bags')} className="text-left px-5 py-3 text-base hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
+                  <button onClick={() => handleCategoryClick('2nd Jute Bags')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
                     <span>♻️ 2nd Jute Bags</span>
-                    <span className="text-xs bg-stone-100 text-stone-900 px-2.5 py-0.5 rounded-full font-bold">Used</span>
+                    <span className="text-[10px] bg-stone-100 text-stone-900 px-2 py-0.5 rounded-full font-bold">Used</span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Plastic')} className="text-left px-5 py-3 text-base hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
+                  <button onClick={() => handleCategoryClick('Plastic')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
                     <span>🏗️ Plastic Bags</span>
-                    <span className="text-xs bg-sky-100 text-sky-900 px-2.5 py-0.5 rounded-full font-bold">HDPE</span>
+                    <span className="text-[10px] bg-sky-100 text-sky-900 px-2 py-0.5 rounded-full font-bold">HDPE</span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Plastic Roll')} className="text-left px-5 py-3 text-base hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
+                  <button onClick={() => handleCategoryClick('Plastic Roll')} className="text-left px-4 py-2 text-xs hover:bg-jute-light/10 hover:text-jute-dark font-semibold flex justify-between items-center text-gray-800">
                     <span>🌀 Plastic Roll</span>
-                    <span className="text-xs bg-indigo-100 text-indigo-900 px-2.5 py-0.5 rounded-full font-bold">Roll</span>
+                    <span className="text-[10px] bg-indigo-100 text-indigo-900 px-2 py-0.5 rounded-full font-bold">Roll</span>
                   </button>
                 </div>
               )}
@@ -138,60 +138,60 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
             </Link>
           </div>
 
-          {/* Scaled Action Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Refined Action Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
             {onOpenAdminModal && (
               <button 
                 onClick={onOpenAdminModal}
-                className="text-base text-gray-800 font-bold flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-5 py-3.5 rounded-xl transition border border-gray-300"
+                className="text-xs text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 px-3.5 py-2 rounded-lg transition border border-gray-300"
                 title="View Admin Leads Log"
               >
-                <ClipboardList className="w-5 h-5 text-jute-dark" /> View Leads
+                <ClipboardList className="w-4 h-4 text-jute-dark" /> View Leads
               </button>
             )}
             <button
               onClick={() => navigate('/enquire')}
-              className="bg-jute-dark text-white hover:bg-jute px-8 py-3.5 rounded-xl font-bold transition-all shadow-md text-base md:text-lg tracking-wide uppercase"
+              className="bg-jute-dark text-white hover:bg-jute px-6 py-2.5 rounded-lg font-bold transition-all shadow-sm text-xs sm:text-sm tracking-wide uppercase"
             >
               Enquire Now
             </button>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="lg:hidden text-gray-900 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={36} /> : <Menu size={36} />}
+          <button className="lg:hidden text-gray-900 p-1.5" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 px-6 py-6 flex flex-col gap-4 shadow-xl text-lg font-semibold">
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-left text-gray-900 py-2 border-b border-gray-100">
+          <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 px-5 py-5 flex flex-col gap-3 shadow-xl text-base font-semibold">
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-left text-gray-900 py-1.5 border-b border-gray-100">
               Home
             </Link>
-            <button onClick={() => scrollToSection('about-section')} className="text-left text-gray-900 py-2 border-b border-gray-100">
+            <button onClick={() => scrollToSection('about-section')} className="text-left text-gray-900 py-1.5 border-b border-gray-100">
               About Us
             </button>
-            <button onClick={() => scrollToSection('products-section')} className="text-left text-gray-900 py-2 border-b border-gray-100">
+            <button onClick={() => scrollToSection('products-section')} className="text-left text-gray-900 py-1.5 border-b border-gray-100">
               Products Catalog
             </button>
-            <button onClick={() => scrollToSection('why-us-section')} className="text-left text-gray-900 py-2 border-b border-gray-100">
+            <button onClick={() => scrollToSection('why-us-section')} className="text-left text-gray-900 py-1.5 border-b border-gray-100">
               Why Choose Us
             </button>
-            <Link to="/enquire" onClick={() => setMobileMenuOpen(false)} className="text-left text-gray-900 py-2 border-b border-gray-100">
+            <Link to="/enquire" onClick={() => setMobileMenuOpen(false)} className="text-left text-gray-900 py-1.5 border-b border-gray-100">
               Contact & Inquiry
             </Link>
             {onOpenAdminModal && (
               <button 
                 onClick={() => { setMobileMenuOpen(false); onOpenAdminModal(); }}
-                className="text-left text-gray-900 font-bold py-2 flex items-center gap-2"
+                className="text-left text-gray-900 font-bold py-1.5 flex items-center gap-2"
               >
-                <ClipboardList className="w-5 h-5 text-jute-dark" /> View Leads Log
+                <ClipboardList className="w-4 h-4 text-jute-dark" /> View Leads Log
               </button>
             )}
             <button
               onClick={() => { setMobileMenuOpen(false); navigate('/enquire'); }}
-              className="bg-jute-dark text-white text-center py-4 rounded-xl font-bold mt-2 text-base md:text-lg tracking-wider uppercase shadow-md"
+              className="bg-jute-dark text-white text-center py-3 rounded-lg font-bold mt-1 text-xs uppercase tracking-wider shadow-sm"
             >
               Enquire Now
             </button>
