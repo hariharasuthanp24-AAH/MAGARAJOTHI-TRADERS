@@ -3,14 +3,14 @@ import { ShieldCheck, CheckCircle2, ArrowUpRight, Leaf, Truck, Award } from 'luc
 
 const AboutSnippet = ({ onOpenInquiry }) => {
   return (
-    <section id="about-section" className="py-20 md:py-28 bg-white relative overflow-hidden font-sans border-y border-gray-200/80">
+    <section id="about-section" className="py-20 md:py-28 bg-[#FAF6F0] relative overflow-hidden font-sans border-b border-gray-200/80">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Visual Card with Cream Inner Container */}
+          {/* Left Column: Visual Card with Elevated White Container */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-[#FAF6F0] p-6 h-80 sm:h-96 flex items-center justify-center">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-white p-6 h-80 sm:h-96 flex items-center justify-center">
               <img
                 src="/logo.png"
                 alt="Magarajothi Traders Natural Jute Sourcing Since 1985"
@@ -51,19 +51,19 @@ const AboutSnippet = ({ onOpenInquiry }) => {
 
             {/* Core Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-base font-semibold text-gray-900">
-              <div className="flex items-center gap-3 bg-[#FAF6F0] p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
                 <span><strong className="font-bold text-gray-900">Food-Grade</strong> Hydrocarbon Free</span>
               </div>
-              <div className="flex items-center gap-3 bg-[#FAF6F0] p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
                 <span>Custom Size & Brand Printing</span>
               </div>
-              <div className="flex items-center gap-3 bg-[#FAF6F0] p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
                 <span>Grade-A Clean Used Jute Sacks</span>
               </div>
-              <div className="flex items-center gap-3 bg-[#FAF6F0] p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
                 <span><strong className="font-bold text-gray-900">Direct Mill</strong> Rates Since 1985</span>
               </div>
