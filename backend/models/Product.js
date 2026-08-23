@@ -20,11 +20,11 @@ const productSchema = new mongoose.Schema(
     },
     subcategory: {
       type: String,
-      default: 'Standard',
+      default: 'Standard Eco Spec',
     },
     capacity: {
       type: String,
-      default: '50 kg',
+      default: '50kg',
     },
     dimensions: {
       type: String,
@@ -32,7 +32,7 @@ const productSchema = new mongoose.Schema(
     },
     gsm: {
       type: String,
-      default: '300 GSM',
+      default: 'High Burst Strength',
     },
     description: {
       type: String,
@@ -46,6 +46,7 @@ const productSchema = new mongoose.Schema(
     image: {
       type: String,
       required: true,
+      default: '/logo.png',
     },
     isFeatured: {
       type: Boolean,
