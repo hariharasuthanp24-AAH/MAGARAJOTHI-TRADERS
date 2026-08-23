@@ -128,8 +128,18 @@ const Footer = ({ onSelectCategory }) => {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleCategoryClick('Gunny')} className="hover:text-jute-light transition-colors">
-                  📦 Traditional 100kg Gunny Sacks
+                <button onClick={() => handleCategoryClick('Nano Bags')} className="hover:text-jute-light transition-colors">
+                  👜 Nano Bags (Mini Eco Bags)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Jute Thread')} className="hover:text-jute-light transition-colors">
+                  🧵 Jute Thread (Twine & Yarn Spools)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('2nd Jute Bags')} className="hover:text-jute-light transition-colors">
+                  ♻️ 2nd Jute Bags (Clean Used Sacks)
                 </button>
               </li>
               <li>
@@ -138,8 +148,8 @@ const Footer = ({ onSelectCategory }) => {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleCategoryClick('Plastic Rolls')} className="hover:text-jute-light transition-colors">
-                  🌀 Plastic Rolls (HDPE & PP Woven)
+                <button onClick={() => handleCategoryClick('Plastic Roll')} className="hover:text-jute-light transition-colors">
+                  🌀 Plastic Roll (HDPE & PP Woven)
                 </button>
               </li>
             </ul>

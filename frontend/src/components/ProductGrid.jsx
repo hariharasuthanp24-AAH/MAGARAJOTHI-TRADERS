@@ -53,7 +53,7 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
           
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-            {['All', 'Jute', 'Gunny', 'Plastic', 'Plastic Rolls'].map((cat) => (
+            {['All', 'Jute', 'Nano Bags', 'Jute Thread', '2nd Jute Bags', 'Plastic', 'Plastic Roll'].map((cat) => (
               <button
                 key={cat}
                 onClick={() => onSelectCategory(cat)}
@@ -63,7 +63,7 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
                 }`}
               >
-                {cat === 'All' ? 'All Catalog' : `${cat} Bags`}
+                {cat === 'All' ? 'All Catalog' : cat}
               </button>
             ))}
           </div>

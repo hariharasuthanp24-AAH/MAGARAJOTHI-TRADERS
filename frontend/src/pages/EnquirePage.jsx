@@ -353,9 +353,11 @@ const EnquirePage = () => {
                       className="w-full bg-brand-chalk border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-jute focus:bg-white transition font-medium"
                     >
                       <option value="Jute">🌾 Jute Bags (A-Twill, B-Twill, Hessian)</option>
-                      <option value="Gunny">📦 Gunny Bags (100kg, Sugar, Grain)</option>
-                      <option value="Plastic">🏗️ Plastic Gunny Bags (HDPE, PP Woven)</option>
-                      <option value="Plastic Rolls">🌀 Plastic Rolls (HDPE & PP Woven Rolls)</option>
+                      <option value="Nano Bags">👜 Nano Bags (Mini Eco & Promotional Bags)</option>
+                      <option value="Jute Thread">🧵 Jute Thread (Twine & Yarn Spools)</option>
+                      <option value="2nd Jute Bags">♻️ 2nd Jute Bags (Clean Once-Used Sacks)</option>
+                      <option value="Plastic">🏗️ Plastic Bags (HDPE, PP Woven)</option>
+                      <option value="Plastic Roll">🌀 Plastic Roll (HDPE & PP Woven Rolls)</option>
                       <option value="General Inquiry">📋 General Custom Order</option>
                     </select>
                   </div>

@@ -101,17 +101,25 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
                     <span>Jute Bags</span>
                     <span className="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded">Eco</span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Gunny')} className="text-left px-4 py-2 text-sm hover:bg-brand-chalk hover:text-jute-dark font-medium flex justify-between items-center">
-                    <span>Gunny Bags</span>
-                    <span className="text-[10px] bg-yellow-100 text-yellow-900 px-1.5 py-0.5 rounded">Heavy</span>
+                  <button onClick={() => handleCategoryClick('Nano Bags')} className="text-left px-4 py-2 text-sm hover:bg-brand-chalk hover:text-jute-dark font-medium flex justify-between items-center">
+                    <span>Nano Bags</span>
+                    <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded">Mini</span>
+                  </button>
+                  <button onClick={() => handleCategoryClick('Jute Thread')} className="text-left px-4 py-2 text-sm hover:bg-brand-chalk hover:text-jute-dark font-medium flex justify-between items-center">
+                    <span>Jute Thread</span>
+                    <span className="text-[10px] bg-orange-100 text-orange-800 px-1.5 py-0.5 rounded">Twine</span>
+                  </button>
+                  <button onClick={() => handleCategoryClick('2nd Jute Bags')} className="text-left px-4 py-2 text-sm hover:bg-brand-chalk hover:text-jute-dark font-medium flex justify-between items-center">
+                    <span>2nd Jute Bags</span>
+                    <span className="text-[10px] bg-stone-100 text-stone-800 px-1.5 py-0.5 rounded">Used</span>
                   </button>
                   <button onClick={() => handleCategoryClick('Plastic')} className="text-left px-4 py-2 text-sm hover:bg-brand-chalk hover:text-jute-dark font-medium flex justify-between items-center">
-                    <span>Plastic Gunny Bags</span>
+                    <span>Plastic Bags</span>
                     <span className="text-[10px] bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">HDPE</span>
                   </button>
-                  <button onClick={() => handleCategoryClick('Plastic Rolls')} className="text-left px-4 py-2 text-sm hover:bg-brand-chalk hover:text-jute-dark font-medium flex justify-between items-center">
-                    <span>Plastic Rolls</span>
-                    <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded">Rolls</span>
+                  <button onClick={() => handleCategoryClick('Plastic Roll')} className="text-left px-4 py-2 text-sm hover:bg-brand-chalk hover:text-jute-dark font-medium flex justify-between items-center">
+                    <span>Plastic Roll</span>
+                    <span className="text-[10px] bg-indigo-100 text-indigo-800 px-1.5 py-0.5 rounded">Roll</span>
                   </button>
                 </div>
               )}
