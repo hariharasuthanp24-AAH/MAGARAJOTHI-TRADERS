@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import ProductDetailModal from './ProductDetailModal';
 import { fetchProductsApi } from '../api/client';
-import { Search, Filter, Loader2, Sparkles, Leaf } from 'lucide-react';
+import { Search, Loader2, Sparkles, Leaf } from 'lucide-react';
 
-const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
+const ProductGrid = ({ activeCategory = 'All', onSelectCategory, onOpenInquiry }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,9 +15,12 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
       setLoading(true);
       try {
         const data = await fetchProductsApi(activeCategory);
-        setProducts(data);
+        const productList = Array.isArray(data) ? data : (data?.data || []);
+        console.log("Fetched Products:", productList);
+        setProducts(productList);
       } catch (err) {
-        console.error('Error fetching products:', err);
+        console.error('Error fetching products in ProductGrid:', err);
+        setProducts([]);
       } finally {
         setLoading(false);
       }
@@ -25,11 +28,27 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
     loadProducts();
   }, [activeCategory]);
 
-  const filteredProducts = products.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (item.subcategory && item.subcategory.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
+  const categoryTabs = ['All', 'Jute', 'Nano Bags', 'Jute Thread', '2nd Jute Bags', 'Plastic', 'Plastic Roll'];
+
+  const filteredProducts = Array.isArray(products)
+    ? products.filter((item) => {
+        const q = searchTerm.toLowerCase().trim();
+        const matchesSearch =
+          !q ||
+          item.name?.toLowerCase().includes(q) ||
+          item.category?.toLowerCase().includes(q) ||
+          item.subcategory?.toLowerCase().includes(q) ||
+          item.description?.toLowerCase().includes(q);
+
+        const currentCat = activeCategory || 'All';
+        const matchesCategory =
+          currentCat === 'All' ||
+          currentCat === 'All Range' ||
+          item.category?.toLowerCase().trim() === currentCat.toLowerCase().trim();
+
+        return matchesSearch && matchesCategory;
+      })
+    : [];
 
   return (
     <section id="products-section" className="py-20 md:py-28 bg-[#FAF6F0] relative font-sans border-b border-gray-200">
@@ -56,11 +75,11 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
           
           {/* Robust Filter Buttons */}
           <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-            {['All', 'Jute', 'Nano Bags', 'Jute Thread', '2nd Jute Bags', 'Plastic', 'Plastic Roll'].map((cat) => (
+            {categoryTabs.map((cat) => (
               <button
                 key={cat}
-                onClick={() => onSelectCategory(cat)}
-                className={`px-8 py-3 rounded-xl text-base font-semibold transition-all ${
+                onClick={() => onSelectCategory && onSelectCategory(cat)}
+                className={`px-6 py-3 rounded-xl text-sm sm:text-base font-bold transition-all ${
                   activeCategory === cat
                     ? 'bg-jute-dark text-white shadow-md'
                     : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
@@ -71,7 +90,7 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
             ))}
           </div>
 
-          {/* Corrected Search Bar Component (No Icon Overlap) */}
+          {/* Search Bar Component */}
           <div className="relative w-full lg:w-96">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
             <input
@@ -85,7 +104,7 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
 
         </div>
 
-        {/* Loading State */}
+        {/* Loading Spinner */}
         {loading ? (
           <div className="py-28 text-center flex flex-col items-center justify-center space-y-4">
             <Loader2 className="w-14 h-14 text-jute-dark animate-spin" />
@@ -113,7 +132,7 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
             </p>
             <button
               onClick={() => {
-                onSelectCategory('All');
+                if (onSelectCategory) onSelectCategory('All');
                 setSearchTerm('');
               }}
               className="bg-jute-dark text-white hover:bg-jute px-8 py-3.5 rounded-xl text-base font-bold uppercase tracking-wider transition-colors shadow"

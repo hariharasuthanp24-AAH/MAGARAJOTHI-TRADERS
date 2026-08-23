@@ -12,22 +12,28 @@ export const apiClient = axios.create({
 export const fetchProductsApi = async (category = 'All', featured = false, search = '') => {
   try {
     const params = {};
-    if (category && category !== 'All') params.category = category;
+    if (category && category !== 'All' && category !== 'All Range') {
+      params.category = category;
+    }
     if (featured) params.featured = 'true';
     if (search) params.search = search;
 
     const response = await apiClient.get('/products', { params });
-    return response.data;
+    const productArray = Array.isArray(response.data)
+      ? response.data
+      : (response.data?.data || []);
+
+    return productArray;
   } catch (error) {
     console.error('API Error fetchProducts:', error);
-    throw error;
+    return [];
   }
 };
 
 export const fetchProductBySlugApi = async (slug) => {
   try {
     const response = await apiClient.get(`/products/${slug}`);
-    return response.data;
+    return response.data?.data || response.data;
   } catch (error) {
     console.error('API Error fetchProductBySlug:', error);
     throw error;
@@ -47,7 +53,7 @@ export const submitInquiryApi = async (inquiryData) => {
 export const fetchInquiriesApi = async () => {
   try {
     const response = await apiClient.get('/inquiries');
-    return response.data;
+    return response.data?.data || response.data;
   } catch (error) {
     console.error('API Error fetchInquiries:', error);
     throw error;
