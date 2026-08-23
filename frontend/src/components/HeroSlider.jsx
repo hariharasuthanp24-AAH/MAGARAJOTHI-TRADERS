@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight, ShieldCheck, Leaf, Award, Truck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown, ArrowRight, ShieldCheck, Leaf, Award, Truck } from 'lucide-react';
 
 const slides = [
   {
@@ -47,10 +47,19 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
+  const handleScrollDown = () => {
+    const nextSection = document.getElementById('about-section') || document.getElementById('products-section');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollBy({ top: window.innerHeight - 100, behavior: 'smooth' });
+    }
+  };
+
   const activeSlide = slides[currentSlide];
 
   return (
-    <section className="relative bg-[#FAF6F0] overflow-hidden py-16 md:py-20 font-sans border-b border-gray-200">
+    <section className="relative bg-[#FAF6F0] overflow-hidden py-16 md:py-24 pb-28 md:pb-32 font-sans border-b border-gray-200">
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -151,6 +160,19 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
 
         </div>
       </div>
+
+      {/* Animated Scroll to Know More Indicator */}
+      <button
+        onClick={handleScrollDown}
+        className="absolute bottom-5 left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center gap-1 z-20 cursor-pointer group focus:outline-none"
+        aria-label="Scroll to Know More"
+      >
+        <span className="bg-white text-gray-800 text-[11px] font-bold tracking-[0.15em] px-5 py-2 rounded-full shadow-md border border-gray-100 group-hover:shadow-lg group-hover:text-jute-dark transition-all">
+          SCROLL TO KNOW MORE
+        </span>
+        <ChevronDown className="text-jute-dark w-5 h-5 animate-bounce mt-0.5" />
+      </button>
+
     </section>
   );
 };
