@@ -36,7 +36,7 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section id="why-us-section" className="py-20 md:py-28 bg-[#FAF6F0] font-sans border-b border-gray-200">
+    <section id="why-us-section" className="py-20 md:py-28 bg-[#F8F9FA] font-sans border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Scaled Section Header */}
@@ -55,16 +55,16 @@ const WhyChooseUs = () => {
           </p>
         </div>
 
-        {/* Scaled Reasons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        {/* Enhanced Depth Grid Layout (gap-8 md:gap-10 lg:gap-12) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {reasons.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-jute-dark/40 transition-all duration-300 group hover:-translate-y-1"
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1"
               >
-                <div className="w-14 h-14 rounded-2xl bg-jute-light/20 text-jute-dark flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-jute-light/40">
+                <div className="w-14 h-14 rounded-2xl bg-jute-light/20 text-jute-dark flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-jute-light/30">
                   <Icon size={28} className="text-jute-dark" />
                 </div>
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-3 group-hover:text-jute-dark transition-colors">

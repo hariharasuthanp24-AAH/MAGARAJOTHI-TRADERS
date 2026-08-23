@@ -1,30 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle, Loader2, ShieldCheck, Leaf } from 'lucide-react';
 import { submitInquiryApi } from '../api/client';
-import { Send, CheckCircle2, AlertCircle, Loader2, Phone, Mail, MapPin, ShieldCheck, Leaf } from 'lucide-react';
 
-const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
+const InquiryForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
-    productCategory: initialCategory || 'Jute',
-    productName: initialProduct ? initialProduct.name : 'General Inquiry',
-    quantity: '500 Bags',
+    productCategory: 'Jute',
+    productName: 'General Inquiry',
+    quantity: '500 Units',
     message: '',
   });
 
   const [status, setStatus] = useState({ loading: false, success: false, error: null });
-
-  useEffect(() => {
-    if (initialProduct) {
-      setFormData((prev) => ({
-        ...prev,
-        productCategory: initialProduct.category || 'Jute',
-        productName: initialProduct.name,
-      }));
-    }
-  }, [initialProduct]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,7 +35,7 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
         company: '',
         productCategory: 'Jute',
         productName: 'General Inquiry',
-        quantity: '500 Bags',
+        quantity: '500 Units',
         message: '',
       });
     } catch (err) {
@@ -53,99 +43,123 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
       setStatus({
         loading: false,
         success: false,
-        error: err.response?.data?.message || 'Failed to submit inquiry. Please try calling directly.',
+        error: err.response?.data?.message || 'Failed to submit inquiry online. Please call +91 9025236106 directly.',
       });
     }
   };
 
   return (
-    <section id="inquiry-form-section" className="py-20 bg-[#FAF6F0] font-sans border-b border-gray-200">
+    <section id="inquiry-section" className="py-20 md:py-28 bg-[#FAF5EC] font-sans border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
-          
-          {/* Left Side: Commercial Inquiry Information */}
-          <div className="lg:col-span-5 bg-[#FAF6F0] p-8 sm:p-12 flex flex-col justify-between space-y-8 border-b lg:border-b-0 lg:border-r border-gray-200">
-            
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-jute-light/20 text-jute-dark text-xs font-bold uppercase tracking-wider">
-                <Leaf size={14} className="text-jute-dark" />
-                <span>Commercial Inquiry Desk</span>
-              </div>
-
-              <h3 className="font-serif text-3xl font-bold text-gray-900 tracking-tight leading-snug">
-                Request Factory Quote & Custom <span className="text-jute-dark">Jute Samples</span>
-              </h3>
-
-              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
-                Connect directly with our commercial team in Dharapuram, Tamil Nadu for bulk pricing on Jute Bags, Nano Bags, Jute Thread, 2nd Jute Bags & Plastic Rolls.
-              </p>
-            </div>
-
-            {/* Direct Contact Info */}
-            <div className="space-y-4 text-xs pt-4 border-t border-gray-200">
-              <div className="flex items-start space-x-3">
-                <Phone className="w-4 h-4 text-jute-dark shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-gray-500 block font-semibold">Phone & WhatsApp:</span>
-                  <a href="tel:+919025236106" className="font-bold text-gray-800 hover:text-jute-dark transition-colors">
-                    +91 90252 36106
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <Mail className="w-4 h-4 text-jute-dark shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-gray-500 block font-semibold">Email Inquiry:</span>
-                  <a href="mailto:mjttraders.24@gmail.com" className="font-bold text-gray-800 hover:text-jute-dark transition-colors">
-                    mjttraders.24@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-4 h-4 text-jute-dark shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-gray-500 block font-semibold">Main Trading Depot:</span>
-                  <span className="font-semibold text-gray-800">122, Cholakadai St, Dharapuram, Tirupur Dist, TN</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-2">
-              <span className="text-xs text-jute-dark font-bold flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-jute-dark" /> Direct Mill Sourcing • ISO Certified
-              </span>
-            </div>
-
+        {/* Header Title */}
+        <div className="text-center max-w-4xl mx-auto space-y-4 mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jute-light/20 text-jute-dark text-sm font-bold uppercase tracking-wider">
+            <Leaf size={16} className="text-jute-dark" />
+            <span>Commercial Desk</span>
           </div>
 
-          {/* Right Side: Form Fields */}
-          <div className="lg:col-span-7 p-8 sm:p-12 bg-white">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+            Commercial <span className="text-jute-dark">Inquiry Desk</span>
+          </h2>
+
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-4 leading-relaxed font-normal">
+            Request mill-direct pricing, custom size specifications, or bulk sample dispatches across India.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+          
+          {/* Left Panel: Contact Info */}
+          <div className="lg:col-span-5 bg-white p-8 sm:p-10 rounded-2xl border border-gray-100 shadow-md flex flex-col justify-between space-y-8">
+            <div>
+              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">Magarajothi Traders</h3>
+              <p className="text-base text-gray-700 leading-relaxed">
+                Authorized Merchant Supplier for Food-Grade Jute Bags, Hessian Cloth, Jute Twine & HDPE Polymer Packaging.
+              </p>
+
+              <div className="space-y-5 mt-8 text-base text-gray-800 font-medium">
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-jute-light/20 text-jute-dark flex items-center justify-center shrink-0 border border-jute-light/40">
+                    <MapPin size={20} className="text-jute-dark" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-gray-500 block font-semibold uppercase tracking-wider">Registered Address:</span>
+                    <span className="text-gray-900 font-bold leading-relaxed">
+                      122, Cholakadai St, Dharapuram, Tirupur Dist, Tamil Nadu - 638656
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-jute-light/20 text-jute-dark flex items-center justify-center shrink-0 border border-jute-light/40">
+                    <Phone size={20} className="text-jute-dark" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-gray-500 block font-semibold uppercase tracking-wider">Direct Sales Hotline:</span>
+                    <a href="tel:+919025236106" className="text-gray-900 font-extrabold text-lg hover:text-jute-dark transition-colors">
+                      +91 90252 36106
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-jute-light/20 text-jute-dark flex items-center justify-center shrink-0 border border-jute-light/40">
+                    <Mail size={20} className="text-jute-dark" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-gray-500 block font-semibold uppercase tracking-wider">Email Quotations:</span>
+                    <a href="mailto:mjttraders.24@gmail.com" className="text-gray-900 font-bold hover:text-jute-dark transition-colors">
+                      mjttraders.24@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-jute-light/20 text-jute-dark flex items-center justify-center shrink-0 border border-jute-light/40">
+                    <Clock size={20} className="text-jute-dark" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-gray-500 block font-semibold uppercase tracking-wider">Desk Hours:</span>
+                    <span className="text-gray-800 font-semibold">Mon – Sat: 9:00 AM – 8:30 PM IST</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-gray-100">
+              <div className="bg-[#FAF6F0] p-4 rounded-xl border border-gray-200 text-sm text-gray-700 font-semibold flex items-center gap-2.5">
+                <ShieldCheck className="w-5 h-5 text-jute-dark shrink-0" />
+                <span>Instant WhatsApp Quotation & Sample Dispatch</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Panel: Form Card */}
+          <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-2xl border border-gray-100 shadow-md">
             
             {status.success ? (
               <div className="py-12 text-center space-y-4">
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto border-2 border-emerald-300">
                   <CheckCircle2 size={36} />
                 </div>
-                <h4 className="font-serif text-2xl font-bold text-gray-900">Inquiry Submitted Successfully!</h4>
-                <p className="text-gray-700 text-sm max-w-md mx-auto">
-                  Thank you for contacting Magarajothi Traders. Our commercial desk manager will get back to you within 2 business hours.
+                <h3 className="font-serif text-2xl font-bold text-gray-900">Quotation Request Sent!</h3>
+                <p className="text-base text-gray-600 max-w-md mx-auto">
+                  Thank you. Our commercial sales executive will contact you with wholesale rates shortly.
                 </p>
                 <button
                   onClick={() => setStatus({ loading: false, success: false, error: null })}
-                  className="bg-jute-dark text-white hover:bg-jute font-semibold rounded-md px-6 py-2.5 text-xs uppercase tracking-wider transition-colors shadow"
+                  className="bg-jute-dark text-white hover:bg-jute font-semibold rounded-lg px-6 py-2.5 text-xs uppercase tracking-wider transition-colors shadow"
                 >
-                  Submit Another Requirement
+                  Submit Another Inquiry
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 
                 {status.error && (
-                  <div className="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-xs rounded-xl flex items-center space-x-2">
-                    <AlertCircle size={16} className="shrink-0" />
+                  <div className="p-4 rounded-xl bg-rose-50 text-rose-900 border border-rose-300 text-sm flex items-start gap-2 font-medium">
+                    <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
                     <span>{status.error}</span>
                   </div>
                 )}
@@ -153,31 +167,31 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                      Your Full Name <span className="text-rose-500">*</span>
+                      Full Name <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="text"
                       name="name"
                       required
-                      placeholder="e.g. M. Sundaram"
+                      placeholder="e.g. K. Rajasekaran"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                      Phone / WhatsApp <span className="text-rose-500">*</span>
+                      Phone / WhatsApp Number <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="tel"
                       name="phone"
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 90252 36106"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
                 </div>
@@ -194,21 +208,21 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
                       placeholder="mjttraders.24@gmail.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                      Company / Rice Mill Name
+                      Company / Mill Name
                     </label>
                     <input
                       type="text"
                       name="company"
-                      placeholder="e.g. Sri Krishna Rice Mill"
+                      placeholder="e.g. Sri Annapoorna Rice Mill"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
                 </div>
@@ -216,68 +230,68 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                      Product Category Interest
+                      Product Category
                     </label>
                     <select
                       name="productCategory"
                       value={formData.productCategory}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition font-medium"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition font-medium"
                     >
                       <option value="Jute">🌾 Jute Bags (A-Twill, B-Twill, Hessian)</option>
-                      <option value="Nano Bags">👜 Nano Bags (Mini Eco Bags)</option>
-                      <option value="Jute Thread">🧵 Jute Thread (Twine & Yarn Spools)</option>
-                      <option value="2nd Jute Bags">♻️ 2nd Jute Bags (Clean Once-Used Sacks)</option>
-                      <option value="Plastic">🏗️ Plastic Bags (HDPE, PP Woven)</option>
-                      <option value="Plastic Roll">🌀 Plastic Roll (HDPE & PP Woven Rolls)</option>
-                      <option value="General Inquiry">📋 General Custom Order</option>
+                      <option value="Nano Bags">b👜 Nano Bags (Mini Eco Bags)</option>
+                      <option value="Jute Thread">🧵 Jute Thread (Twine Spools)</option>
+                      <option value="2nd Jute Bags">♻️ 2nd Jute Bags (Clean Once-Used)</option>
+                      <option value="Plastic">🏗️ Plastic Bags (HDPE Woven Sacks)</option>
+                      <option value="Plastic Roll">🌀 Plastic Roll (HDPE Fabric Rolls)</option>
+                      <option value="General Inquiry">📋 General Custom Requirement</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                      Estimated Quantity Needed
+                      Estimated Order Quantity
                     </label>
                     <input
                       type="text"
                       name="quantity"
-                      placeholder="e.g. 1000 Bags / 5 Rolls"
+                      placeholder="e.g. 500 Bags / 2 Rolls"
                       value={formData.quantity}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                      className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                    Specific Requirements or Specifications <span className="text-rose-500">*</span>
+                    Requirement Details <span className="text-rose-500">*</span>
                   </label>
                   <textarea
                     name="message"
-                    rows="3"
+                    rows="4"
                     required
-                    placeholder="Provide details on bag dimensions, print design, GSM, or delivery location..."
+                    placeholder="Specify bag dimensions, custom printing, GSM requirements, or destination location..."
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
+                    className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
                   disabled={status.loading}
-                  className="w-full bg-jute-dark hover:bg-jute text-white font-semibold py-3.5 px-6 rounded-lg text-xs uppercase tracking-wider transition-colors shadow-md flex items-center justify-center space-x-2"
+                  className="w-full bg-jute-dark hover:bg-jute text-white font-bold py-4 px-6 rounded-xl text-xs uppercase tracking-wider transition-colors shadow-md flex items-center justify-center space-x-2"
                 >
                   {status.loading ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Sending Inquiry...</span>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Submitting Request...</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      <span>Submit Requirement Inquiry</span>
+                      <span>Send Commercial Inquiry</span>
                     </>
                   )}
                 </button>

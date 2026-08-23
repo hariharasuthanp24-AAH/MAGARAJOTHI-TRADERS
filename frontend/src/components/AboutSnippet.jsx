@@ -3,14 +3,14 @@ import { ShieldCheck, CheckCircle2, ArrowUpRight, Leaf } from 'lucide-react';
 
 const AboutSnippet = ({ onOpenInquiry }) => {
   return (
-    <section id="about-section" className="py-20 md:py-28 bg-[#FAF6F0] relative overflow-hidden font-sans border-b border-gray-200">
+    <section id="about-section" className="py-20 md:py-28 bg-[#F8F9FA] relative overflow-hidden font-sans border-b border-gray-200">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Visual Card with Nature Badge */}
+          {/* Left Column: Visual Card with Layered Depth */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-white p-3">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white p-3">
               <img
                 src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80"
                 alt="Magarajothi Traders Natural Jute Sourcing"
@@ -19,7 +19,7 @@ const AboutSnippet = ({ onOpenInquiry }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent rounded-xl" />
               
               {/* Overlay Stat Badge */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-gray-200 shadow-md flex items-center gap-4">
+              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-gray-100 shadow-lg flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-jute-light/20 text-jute-dark flex items-center justify-center font-bold shrink-0 border border-jute-light/40">
                   <Leaf size={24} className="text-jute-dark" />
                 </div>
@@ -49,19 +49,19 @@ const AboutSnippet = ({ onOpenInquiry }) => {
 
             {/* Core Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-base font-semibold text-gray-800">
-              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
                 <span>Food-Grade Hydrocarbon Free Jute</span>
               </div>
-              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
                 <span>Custom Size & Brand Printing</span>
               </div>
-              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
                 <span>Grade-A Clean Used Jute Sacks</span>
               </div>
-              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
                 <span>Bulk Factory-Direct Wholesale Rates</span>
               </div>
