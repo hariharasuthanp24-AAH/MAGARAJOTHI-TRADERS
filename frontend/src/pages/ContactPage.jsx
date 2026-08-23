@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -25,8 +25,6 @@ const ContactPage = () => {
   const categoryFromUrl = searchParams.get('category') || 'Jute';
 
   const [adminModalOpen, setAdminModalOpen] = useState(false);
-  const [isFormActive, setIsFormActive] = useState(false);
-  const formSectionRef = useRef(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -43,30 +41,6 @@ const ContactPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  // IntersectionObserver to detect when the user enters or focuses the form section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsFormActive(true);
-        } else {
-          setIsFormActive(false);
-        }
-      },
-      { threshold: 0.25 }
-    );
-
-    if (formSectionRef.current) {
-      observer.observe(formSectionRef.current);
-    }
-
-    return () => {
-      if (formSectionRef.current) {
-        observer.unobserve(formSectionRef.current);
-      }
-    };
   }, []);
 
   const handleChange = (e) => {
@@ -102,13 +76,13 @@ const ContactPage = () => {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-700 ease-in-out selection:bg-jute-500 selection:text-white ${isFormActive ? 'bg-[#EFEADF]' : 'bg-[#FAF6F0]'}`}>
+    <div className="min-h-screen flex flex-col font-sans bg-[#FAF6F0] selection:bg-jute-500 selection:text-white">
       
       {/* Navigation */}
       <Navbar onOpenAdminModal={() => setAdminModalOpen(true)} />
 
       {/* Dedicated Contact Page Hero Banner */}
-      <section className="py-14 md:py-20 border-b border-gray-200/80 transition-colors duration-700">
+      <section className="bg-[#FAF6F0] py-14 md:py-20 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -153,8 +127,8 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Main Isolated Contact Details & Dynamic Themed Inquiry Form */}
-      <main ref={formSectionRef} className="flex-1 py-14 md:py-20">
+      {/* Main Contact Details & Inquiry Form Container */}
+      <main className="flex-1 py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -241,13 +215,9 @@ const ContactPage = () => {
 
             </div>
 
-            {/* Right Column: Interactive Commercial Form with Dynamic Focus Theming */}
+            {/* Right Column: Interactive Commercial Form */}
             <div className="lg:col-span-7">
-              <div 
-                onFocus={() => setIsFormActive(true)}
-                onBlur={() => setIsFormActive(false)}
-                className={`bg-white p-8 md:p-10 rounded-2xl shadow-lg border transition-all duration-500 ${isFormActive ? 'border-jute-dark ring-2 ring-jute-dark/20' : 'border-gray-200'}`}
-              >
+              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-200 space-y-6">
                 
                 <div className="border-b border-gray-100 pb-4">
                   <h3 className="font-serif text-2xl font-bold text-gray-900">
@@ -297,7 +267,6 @@ const ContactPage = () => {
                           placeholder="e.g., K. Rajasekaran"
                           value={formData.name}
                           onChange={handleChange}
-                          onFocus={() => setIsFormActive(true)}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
@@ -312,7 +281,6 @@ const ContactPage = () => {
                           placeholder="e.g., +91 98765 43210"
                           value={formData.phone}
                           onChange={handleChange}
-                          onFocus={() => setIsFormActive(true)}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
@@ -331,7 +299,6 @@ const ContactPage = () => {
                           placeholder="e.g., purchase@company.com"
                           value={formData.email}
                           onChange={handleChange}
-                          onFocus={() => setIsFormActive(true)}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
@@ -345,7 +312,6 @@ const ContactPage = () => {
                           placeholder="e.g., Sri Krishna Rice Mill"
                           value={formData.company}
                           onChange={handleChange}
-                          onFocus={() => setIsFormActive(true)}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
@@ -361,7 +327,6 @@ const ContactPage = () => {
                           name="productCategory"
                           value={formData.productCategory}
                           onChange={handleChange}
-                          onFocus={() => setIsFormActive(true)}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition font-semibold"
                         >
                           <option value="Jute">Jute Bags (A-Twill, B-Twill)</option>
@@ -382,7 +347,6 @@ const ContactPage = () => {
                           placeholder="e.g., 1,000 Bags"
                           value={formData.quantity}
                           onChange={handleChange}
-                          onFocus={() => setIsFormActive(true)}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
@@ -400,7 +364,6 @@ const ContactPage = () => {
                         placeholder="e.g., Please provide bag dimensions, GSM specifications, custom logo printing details, and expected delivery timeline..."
                         value={formData.message}
                         onChange={handleChange}
-                        onFocus={() => setIsFormActive(true)}
                         className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                       ></textarea>
                     </div>
