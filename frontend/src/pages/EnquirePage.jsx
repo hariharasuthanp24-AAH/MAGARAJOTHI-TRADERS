@@ -355,6 +355,7 @@ const EnquirePage = () => {
                       <option value="Jute">🌾 Jute Bags (A-Twill, B-Twill, Hessian)</option>
                       <option value="Gunny">📦 Gunny Bags (100kg, Sugar, Grain)</option>
                       <option value="Plastic">🏗️ Plastic Gunny Bags (HDPE, PP Woven)</option>
+                      <option value="Plastic Rolls">🌀 Plastic Rolls (HDPE & PP Woven Rolls)</option>
                       <option value="General Inquiry">📋 General Custom Order</option>
                     </select>
                   </div>

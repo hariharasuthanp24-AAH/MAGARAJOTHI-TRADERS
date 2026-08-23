@@ -250,6 +250,7 @@ const InquiryForm = ({ initialProduct = null, initialCategory = 'Jute' }) => {
                       <option value="Jute">🌾 Jute Bags (A-Twill, B-Twill, Hessian)</option>
                       <option value="Gunny">📦 Heavy Gunny Sacks (100kg, Sugar, Spices)</option>
                       <option value="Plastic">🏗️ Plastic Gunny Sacks (HDPE, PP, Laminated)</option>
+                      <option value="Plastic Rolls">🌀 Plastic Rolls (HDPE & PP Woven Rolls)</option>
                       <option value="General Inquiry">📋 General Custom Order</option>
                     </select>
                   </div>

@@ -53,7 +53,7 @@ const ProductGrid = ({ activeCategory, onSelectCategory, onOpenInquiry }) => {
           
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-            {['All', 'Jute', 'Gunny', 'Plastic'].map((cat) => (
+            {['All', 'Jute', 'Gunny', 'Plastic', 'Plastic Rolls'].map((cat) => (
               <button
                 key={cat}
                 onClick={() => onSelectCategory(cat)}

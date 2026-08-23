@@ -109,6 +109,10 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
                     <span>Plastic Gunny Bags</span>
                     <span className="text-[10px] bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">HDPE</span>
                   </button>
+                  <button onClick={() => handleCategoryClick('Plastic Rolls')} className="text-left px-4 py-2 text-sm hover:bg-brand-chalk hover:text-jute-dark font-medium flex justify-between items-center">
+                    <span>Plastic Rolls</span>
+                    <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded">Rolls</span>
+                  </button>
                 </div>
               )}
             </div>

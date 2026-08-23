@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, 'Category is required'],
-      enum: ['Jute', 'Gunny', 'Plastic'],
+      enum: ['Jute', 'Gunny', 'Plastic', 'Plastic Rolls'],
     },
     subcategory: {
       type: String,

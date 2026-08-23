@@ -25,7 +25,7 @@ const inquirySchema = new mongoose.Schema(
     },
     productCategory: {
       type: String,
-      enum: ['Jute', 'Gunny', 'Plastic', 'General Inquiry'],
+      enum: ['Jute', 'Gunny', 'Plastic', 'Plastic Rolls', 'General Inquiry'],
       default: 'General Inquiry',
     },
     productName: {

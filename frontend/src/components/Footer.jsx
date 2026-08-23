@@ -137,6 +137,11 @@ const Footer = ({ onSelectCategory }) => {
                   🏗️ HDPE / PP Woven Plastic Bags
                 </button>
               </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Plastic Rolls')} className="hover:text-jute-light transition-colors">
+                  🌀 Plastic Rolls (HDPE & PP Woven)
+                </button>
+              </li>
             </ul>
           </div>
 
