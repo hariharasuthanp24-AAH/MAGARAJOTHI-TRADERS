@@ -60,25 +60,21 @@ const Testimonials = () => {
   const t = testimonials[activeIdx];
 
   return (
-    <section id="testimonials-section" className="py-20 bg-brand-navy text-white relative overflow-hidden">
-      {/* Background Ornaments */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-jute/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-jute-dark/20 rounded-full blur-3xl pointer-events-none"></div>
-
+    <section id="testimonials-section" className="py-20 md:py-28 bg-[#FAF6F0] font-sans border-b border-gray-200 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center space-x-2 bg-jute/20 text-jute-light border border-jute/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-            <MessageSquareQuote className="w-4 h-4 text-jute" />
+        {/* Scaled Section Header */}
+        <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
+          <div className="inline-flex items-center space-x-2 bg-jute-light/20 text-jute-dark border border-jute-light/40 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">
+            <MessageSquareQuote className="w-4 h-4 text-jute-dark" />
             <span>CLIENT TRUST & SATISFACTION</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white tracking-tight">
+          <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
             What Our Clients Say!
           </h2>
 
-          <p className="text-slate-300 text-base">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mt-4 leading-relaxed font-normal">
             Hear from rice mill owners, sugar export directors, and APMC agricultural merchants who count on Magarajothi Traders for bulk packaging supplies.
           </p>
         </div>
@@ -86,39 +82,39 @@ const Testimonials = () => {
         {/* Carousel Card */}
         <div className="max-w-4xl mx-auto relative">
           
-          <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-white/15 shadow-2xl relative">
+          <div className="bg-white rounded-3xl p-8 sm:p-14 border border-gray-200 shadow-md relative">
             
-            <Quote className="w-16 h-16 text-jute/20 absolute top-6 right-8 pointer-events-none" />
+            <Quote className="w-20 h-20 text-jute-light/20 absolute top-6 right-8 pointer-events-none" />
 
             <div className="space-y-6">
               
               {/* Rating Stars */}
-              <div className="flex space-x-1">
+              <div className="flex space-x-1.5">
                 {[...Array(t.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-jute text-jute" />
+                  <Star key={i} className="w-6 h-6 fill-jute-dark text-jute-dark" />
                 ))}
               </div>
 
               {/* Quote text */}
-              <p className="text-lg sm:text-xl text-slate-100 font-medium leading-relaxed italic">
+              <p className="text-xl sm:text-2xl text-gray-800 font-medium leading-relaxed italic font-serif">
                 "{t.quote}"
               </p>
 
               {/* Reviewer Details with Avatar */}
-              <div className="pt-4 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center space-x-4">
                   <img
                     src={t.avatar}
                     alt={t.name}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-jute shadow"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-jute-dark shadow-sm"
                   />
                   <div>
-                    <h4 className="text-lg font-bold text-white leading-tight">{t.name}</h4>
-                    <p className="text-xs text-jute-light font-semibold">{t.role} • {t.company}</p>
+                    <h4 className="text-xl font-bold text-gray-900 leading-tight">{t.name}</h4>
+                    <p className="text-sm text-jute-dark font-bold">{t.role} • {t.company}</p>
                   </div>
                 </div>
 
-                <span className="text-xs text-slate-300 bg-white/10 px-3 py-1.5 rounded-full border border-white/15 w-fit">
+                <span className="text-xs font-semibold text-gray-700 bg-[#FAF6F0] px-4 py-2 rounded-full border border-gray-200 w-fit">
                   📍 {t.location}
                 </span>
               </div>
@@ -128,32 +124,32 @@ const Testimonials = () => {
           </div>
 
           {/* Carousel Arrows */}
-          <div className="flex justify-center items-center space-x-4 mt-8">
+          <div className="flex justify-center items-center space-x-5 mt-10">
             <button
               onClick={prevTestimonial}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-jute text-white flex items-center justify-center transition-all border border-white/15"
+              className="w-12 h-12 rounded-full bg-white hover:bg-jute-dark hover:text-white text-gray-800 flex items-center justify-center transition-all border border-gray-300 shadow-sm"
               aria-label="Previous Testimonial"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-6 h-6" />
             </button>
 
             {/* Pagination Dots */}
-            <div className="flex space-x-2">
+            <div className="flex space-x-2.5">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIdx(idx)}
-                  className={`h-2 rounded-full transition-all ${idx === activeIdx ? 'w-6 bg-jute' : 'w-2 bg-white/30'}`}
+                  className={`h-2.5 rounded-full transition-all ${idx === activeIdx ? 'w-8 bg-jute-dark' : 'w-2.5 bg-gray-300'}`}
                 />
               ))}
             </div>
 
             <button
               onClick={nextTestimonial}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-jute text-white flex items-center justify-center transition-all border border-white/15"
+              className="w-12 h-12 rounded-full bg-white hover:bg-jute-dark hover:text-white text-gray-800 flex items-center justify-center transition-all border border-gray-300 shadow-sm"
               aria-label="Next Testimonial"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-6 h-6" />
             </button>
           </div>
 
