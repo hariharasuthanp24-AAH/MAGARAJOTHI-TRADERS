@@ -36,25 +36,21 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section id="why-us-section" className="py-20 bg-forest-950 text-white relative font-sans overflow-hidden">
-      
-      {/* Glow Effects */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-jute-500/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="why-us-section" className="py-20 bg-[#FAF6F0] font-sans border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-jute-500/15 border border-jute-400/30 text-jute-300 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-            <Leaf size={14} className="text-jute-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-jute-light/20 text-jute-dark text-xs font-bold uppercase tracking-wider">
+            <Leaf size={14} className="text-jute-dark" />
             <span>The Magarajothi Advantage</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-amber-50 tracking-tight">
-            Why Leading Exporters Choose <span className="text-jute-400">Magarajothi Traders</span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+            Why Leading Exporters Choose <span className="text-jute-dark">Magarajothi Traders</span>
           </h2>
 
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
             Delivering uncompromised jute quality, food-grade eco compliance, and reliable commercial merchant trading.
           </p>
         </div>
@@ -66,15 +62,15 @@ const WhyChooseUs = () => {
             return (
               <div
                 key={index}
-                className="bg-forest-900/60 backdrop-blur-md p-6 rounded-2xl border border-jute-500/20 hover:border-jute-400/50 transition-all duration-300 group hover:-translate-y-1 shadow-lg"
+                className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-jute-dark/40 transition-all duration-300 group hover:-translate-y-1"
               >
-                <div className="w-12 h-12 rounded-xl bg-jute-500/20 text-jute-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform border border-jute-400/30">
-                  <Icon size={24} />
+                <div className="w-12 h-12 rounded-xl bg-jute-light/20 text-jute-dark flex items-center justify-center mb-5 group-hover:scale-110 transition-transform border border-jute-light/40">
+                  <Icon size={24} className="text-jute-dark" />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-white mb-2 group-hover:text-jute-300 transition-colors">
+                <h3 className="font-serif text-lg font-bold text-gray-900 mb-2 group-hover:text-jute-dark transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-300 text-xs leading-relaxed">
+                <p className="text-gray-600 text-xs leading-relaxed">
                   {item.description}
                 </p>
               </div>
