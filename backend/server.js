@@ -20,10 +20,12 @@ app.use(morgan('dev')); // Log HTTP requests
 // Route Imports
 const productRoutes = require('./routes/productRoutes');
 const inquiryRoutes = require('./routes/inquiryRoutes');
+const testimonialRoutes = require('./routes/testimonialRoutes');
 
 // API Endpoints
 app.use('/api/products', productRoutes);
 app.use('/api/inquiries', inquiryRoutes);
+app.use('/api/testimonials', testimonialRoutes);
 
 // Health Check Route
 app.get('/', (req, res) => {

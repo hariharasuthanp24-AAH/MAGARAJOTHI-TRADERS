@@ -59,3 +59,26 @@ export const fetchInquiriesApi = async () => {
     throw error;
   }
 };
+
+export const fetchTestimonialsApi = async () => {
+  try {
+    const response = await apiClient.get('/testimonials');
+    const testimonialsArray = Array.isArray(response.data)
+      ? response.data
+      : (response.data?.data || []);
+    return testimonialsArray;
+  } catch (error) {
+    console.error('API Error fetchTestimonials:', error);
+    return [];
+  }
+};
+
+export const submitTestimonialApi = async (testimonialData) => {
+  try {
+    const response = await apiClient.post('/testimonials', testimonialData);
+    return response.data;
+  } catch (error) {
+    console.error('API Error submitTestimonial:', error);
+    throw error;
+  }
+};
