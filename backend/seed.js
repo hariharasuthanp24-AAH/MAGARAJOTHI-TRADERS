@@ -5,126 +5,193 @@ const Product = require('./models/Product');
 dotenv.config();
 
 const sampleProducts = [
-  // --- PLASTIC ROLL (NEW PRODUCTS) ---
+  // --- 1. CATEGORY: JUTE (JUTE BAGS) ---
   {
-    name: 'Roll 1',
-    slug: 'roll-1-pp-woven-fabric',
-    category: 'Plastic Roll',
-    subcategory: 'Polypropylene Woven Roll',
-    capacity: 'Custom Length / Bulk',
-    dimensions: 'Standard Roll Width (24 - 48 in)',
-    gsm: '80 - 120 GSM',
-    description: 'High-quality Polypropylene (PP) woven sack fabric roll featuring a distinct yellow and red stripe pattern. Ideal for custom bag manufacturing, industrial wrapping, and bulk agricultural packaging.',
+    name: '50kg Jute Bag (A-Twill)',
+    slug: '50kg-jute-bag-a-twill',
+    category: 'Jute',
+    subcategory: 'Food Grade Export Sacks',
+    capacity: '50 kg',
+    dimensions: '94cm x 57cm',
+    gsm: '330 GSM',
+    description: 'Premium hydrocarbon-free A-Twill Jute Bag specially processed for food-grade agricultural packaging. Ideal for exporting coffee beans, cocoa, cashew nuts, and high-value grains.',
     features: [
-      'Distinct Yellow & Red Stripe Pattern',
-      'High Tensile Polypropylene Woven Fabric',
-      'Industrial Wrapping & Custom Bag Manufacturing',
-      'Weather Resistant & UV Stabilized'
+      '100% Biodegradable & Eco-Friendly',
+      'Hydrocarbon-Free Processed (VO Standard)',
+      'High Bursting Strength & Seam Safety',
+      'Custom Mill Brand Printing Available'
     ],
-    image: '/images/polypropylene-woven-sack-fabric-roll yellow wit red.jpg',
+    image: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=800&q=80',
     isFeatured: true,
     inStock: true,
-    minOrderQuantity: '1 Roll / 500 Meters',
-    priceEstimate: 'Factory Direct Rate',
+    minOrderQuantity: '500 Bags',
+    priceEstimate: 'Direct Mill Wholesale Rate',
     specifications: {
-      material: 'PP Woven Fabric',
-      print: 'Yellow with Red Stripe',
-      usage: 'Industrial Wrapping, Custom Bags'
+      material: '100% Natural Raw Jute',
+      weaveType: 'A-Twill Food Grade',
+      color: 'Golden Natural Jute',
+      stitching: 'Safety Heracle Stitching',
+      grade: 'Export Class A'
     }
   },
   {
-    name: 'Roll 2',
-    slug: 'roll-2-multi-color-pp-roll',
-    category: 'Plastic Roll',
-    subcategory: 'Multi-Color Polymer Roll',
-    capacity: 'Custom Length / Bulk',
-    dimensions: 'Custom Roll Widths',
-    gsm: '90 - 140 GSM',
-    description: 'Premium multi-color PP plastic woven fabric rolls available in solid white, yellow, and green variants. Engineered for high tensile strength and weather resistance, perfect for heavy-duty commercial export packaging.',
+    name: '75kg Heavy-Duty Jute Bag (B-Twill)',
+    slug: '75kg-heavy-duty-jute-bag-b-twill',
+    category: 'Jute',
+    subcategory: 'Agricultural Bulk Sacks',
+    capacity: '75 kg / 100 kg',
+    dimensions: '112cm x 67.5cm',
+    gsm: '380 GSM',
+    description: 'Heavy-duty B-Twill Jute Sack widely utilized across India for high-density agricultural storage. Manufactured for rice mills, wheat processing, and bulk sugar transport.',
     features: [
-      'Multi-Color Options (White, Yellow, Green)',
-      'High Tensile Strength Polymer Mesh',
-      'Weather & Moisture Resistant',
-      'Heavy-Duty Commercial Export Grade'
+      'Heavy Load Capacity for Dense Grain',
+      'Non-Slip Stacking Texture',
+      'Breathable Mesh Structure',
+      'Re-usable Lifecycle'
     ],
-    image: '/images/pp plastic roll white,yellow,green,.jpg',
+    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
     isFeatured: true,
     inStock: true,
-    minOrderQuantity: '1 Roll / 500 Meters',
-    priceEstimate: 'Wholesale Export Price',
+    minOrderQuantity: '1000 Bags',
+    priceEstimate: 'Factory Direct Price',
     specifications: {
-      material: 'HDPE/PP Polymer',
-      print: 'Solid White, Yellow, Green',
-      usage: 'Export Packaging, Heavy-Duty Sacks'
+      material: 'Heavy-Grain Jute Fiber',
+      weaveType: 'B-Twill Commercial',
+      color: 'Natural Brown',
+      stitching: 'Double Hemmed Mouth',
+      grade: 'Industrial Mandi Grade'
+    }
+  },
+  {
+    name: '25kg Jute Bag (Hessian Cloth)',
+    slug: '25kg-jute-bag-hessian-cloth',
+    category: 'Jute',
+    subcategory: 'Lightweight Retail Sacks',
+    capacity: '25 kg',
+    dimensions: '75cm x 48cm',
+    gsm: '290 GSM',
+    description: 'Lightweight plain-weave Hessian Jute Bag crafted for 25kg commercial retail packing of pulses, seeds, pulses, and organic grains.',
+    features: [
+      'Fine Uniform Mesh Pattern',
+      'Smooth Hand Feel & Clean Appearance',
+      'Eco-Friendly Organic Packaging',
+      'Custom Screen Logo Printing'
+    ],
+    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+    isFeatured: false,
+    inStock: true,
+    minOrderQuantity: '500 Bags',
+    priceEstimate: 'Retail Wholesale Rate',
+    specifications: {
+      material: 'Hessian Jute Cloth',
+      weaveType: 'Plain Weave',
+      color: 'Light Golden Brown',
+      stitching: 'Overlock Safety Stitch',
+      grade: 'Retail Grade'
     }
   },
 
-  // --- NANO BAGS ---
+  // --- 2. CATEGORY: NANO BAGS (COMPACT JUTE) ---
   {
-    name: 'Compact Eco Laminated Nano Jute Bag',
-    slug: 'compact-eco-laminated-nano-jute-bag',
+    name: '26kg Nano Jute Bag',
+    slug: '26kg-nano-jute-bag',
     category: 'Nano Bags',
-    subcategory: 'Mini Eco Bags',
-    capacity: '5 kg / 10 kg',
-    dimensions: '25cm x 20cm x 10cm',
-    gsm: '280 GSM',
-    description: 'Stylish mini laminated jute nano bag designed for retail packaging, return gifts, promotional events, and compact agricultural samples.',
+    subcategory: 'Medium Eco Bags',
+    capacity: '26 kg',
+    dimensions: '55cm x 38cm x 15cm',
+    gsm: '310 GSM',
+    description: 'Medium-sized laminated nano jute bag engineered for 26kg grain packaging, mandi seed distribution, and sturdy commercial retail handles.',
     features: [
-      'Inner Moisture-Proof Lamination Layer',
-      'Padded Luxury Cotton Rope Handles',
-      'Custom Brand Screen Printing Available',
-      '100% Eco-Friendly & Reusable'
+      'Moisture-Resistant Inner Lamination',
+      'Padded Luxury Rope Handles',
+      'High Tensile Bursting Resistance',
+      'Reusable Commercial Bag'
     ],
     image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '500 Bags',
-    priceEstimate: 'Wholesale Unit Rate',
+    priceEstimate: 'Direct Manufacturer Rate',
     specifications: {
-      material: 'Laminated Natural Jute Fabric',
-      weaveType: 'Fine Plain Weave',
-      color: 'Natural Jute / Gold Accent',
-      stitching: 'Reinforced Edge Stitching',
-      grade: 'Premium Retail Grade'
+      material: 'Laminated Natural Jute',
+      weaveType: 'Fine Weave',
+      color: 'Natural Jute / Black Trim',
+      stitching: 'Heavy Duty Edge Stitching',
+      grade: 'Commercial Retail'
     }
   },
   {
-    name: 'Mini Promotional Hessian Nano Bag',
-    slug: 'mini-promotional-hessian-nano-bag',
+    name: '15kg Nano Jute Bag',
+    slug: '15kg-nano-jute-bag',
     category: 'Nano Bags',
-    subcategory: 'Promotional Packaging',
-    capacity: '2 kg / 5 kg',
-    dimensions: '20cm x 15cm',
-    gsm: '260 GSM',
-    description: 'Compact hessian nano bag crafted for spice samples, dry fruit packaging, corporate gifting, and artisanal retail branding.',
+    subcategory: 'Compact Grain Pouches',
+    capacity: '15 kg',
+    dimensions: '40cm x 30cm x 12cm',
+    gsm: '290 GSM',
+    description: 'Compact 15kg nano jute bag ideal for specialized organic rice, pulses, dry fruits, and promotional seed dispatches.',
     features: [
-      'Drawstring / Handle Sealing Option',
-      'High Visual Aesthetics for Retail Shelves',
-      'Biodegradable Jute Fiber',
-      'Custom Mill Logo Printing'
+      'Laminated Interior Barrier',
+      'Comfortable Carrying Handles',
+      'Eco-Friendly Brand Promotion',
+      'Durable Load Capacity'
     ],
     image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80',
+    isFeatured: true,
+    inStock: true,
+    minOrderQuantity: '500 Bags',
+    priceEstimate: 'Wholesale Unit Rate',
+    specifications: {
+      material: 'Laminated Hessian Jute',
+      weaveType: 'Plain Weave',
+      color: 'Natural Golden Jute',
+      stitching: 'Reinforced Handles',
+      grade: 'Premium Eco Grade'
+    }
+  },
+  {
+    name: '10kg Nano Jute Bag',
+    slug: '10kg-nano-jute-bag',
+    category: 'Nano Bags',
+    subcategory: 'Mini Eco Pouches',
+    capacity: '10 kg',
+    dimensions: '30cm x 22cm x 10cm',
+    gsm: '280 GSM',
+    description: 'Stylish 10kg mini nano jute bag designed for premium retail rice packaging, gift hampers, and agricultural sample dispatches.',
+    features: [
+      'Moisture-Proof Lamination Layer',
+      'Compact & Lightweight Design',
+      'High Visual Aesthetics for Shelves',
+      'Custom Brand Flexo Printing'
+    ],
+    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
     isFeatured: false,
     inStock: true,
-    minOrderQuantity: '1000 Bags',
-    priceEstimate: 'Factory Direct Price'
+    minOrderQuantity: '500 Bags',
+    priceEstimate: 'Factory Direct Price',
+    specifications: {
+      material: 'Laminated Natural Jute',
+      weaveType: 'Fine Plain Weave',
+      color: 'Natural Jute',
+      stitching: 'Padded Rope Handle',
+      grade: 'Mini Retail Grade'
+    }
   },
 
-  // --- JUTE THREAD ---
+  // --- 3. CATEGORY: JUTE THREAD (TWINE/YARN) ---
   {
-    name: '3-Ply Heavy Duty Natural Jute Thread Spool',
-    slug: '3-ply-heavy-duty-natural-jute-thread-spool',
+    name: '3 Tier Jute Thread (Spool)',
+    slug: '3-tier-jute-thread-spool',
     category: 'Jute Thread',
     subcategory: 'Stitching & Tying Twine',
     capacity: '1 kg / 5 kg Spool',
     dimensions: '3-Ply Standard Gauge',
     gsm: 'High Tensile Twine',
-    description: 'Tough 3-ply natural jute thread spool engineered for manual and machine mouth-stitching of agricultural jute sacks, bundling, and craft applications.',
+    description: 'Strong 3-tier (3-ply) natural jute thread spool engineered for manual and portable machine mouth-stitching of agricultural jute sacks and bag sealing.',
     features: [
-      'High Breaking Tensile Strength',
-      'Smooth Uniform Thickness without Knots',
-      'Natural Fiber - 100% Eco-Friendly',
-      'Compatible with Hand & Portable Stitchers'
+      'High Tensile Breaking Strength',
+      'Uniform Thickness Without Knots',
+      '100% Natural Raw Jute Fiber',
+      'Smooth Feed in Stitching Machines'
     ],
     image: 'https://images.unsplash.com/photo-1606760227091-3dd850d97f1d?auto=format&fit=crop&w=800&q=80',
     isFeatured: true,
@@ -132,7 +199,7 @@ const sampleProducts = [
     minOrderQuantity: '50 Spools',
     priceEstimate: 'Direct Mill Rate',
     specifications: {
-      material: '100% Pure Raw Jute Fiber',
+      material: '100% Pure Raw Jute',
       weaveType: '3-Ply Twisted Twine',
       color: 'Natural Golden Brown',
       stitching: 'Thread Spool',
@@ -140,155 +207,258 @@ const sampleProducts = [
     }
   },
   {
-    name: 'Industrial High-Tensile Jute Twine & Yarn Roll',
-    slug: 'industrial-high-tensile-jute-twine-yarn-roll',
+    name: '5 Tier Industrial Jute Thread',
+    slug: '5-tier-industrial-jute-thread',
     category: 'Jute Thread',
-    subcategory: 'Packaging Yarn',
-    capacity: '10 kg / 25 kg Roll',
-    dimensions: '2-Ply / 4-Ply Available',
-    gsm: 'Industrial Yarn',
-    description: 'Heavy-gauge raw jute twine and yarn roll produced for industrial bale binding, crop trellising, carpet backing, and heavy sack stitching.',
+    subcategory: 'Heavy Duty Yarn Roll',
+    capacity: '5 kg / 25 kg Roll',
+    dimensions: '5-Ply Heavy Gauge',
+    gsm: 'Industrial Heavy Twine',
+    description: 'Heavy-gauge 5-tier (5-ply) industrial jute yarn roll manufactured for heavy bale binding, agricultural crop trellising, and high-tension sack stitching.',
     features: [
+      'Maximum Seam Hold Capacity',
       'Moisture Absorbing & Friction Resistant',
-      'High Seam Hold Strength',
       'Continuous Length Spool Roll',
-      'Biodegradable Soil Safe'
+      'Soil-Safe Biodegradable'
     ],
     image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80',
-    isFeatured: false,
+    isFeatured: true,
     inStock: true,
     minOrderQuantity: '100 kg',
-    priceEstimate: 'Wholesale Yarn Rate'
+    priceEstimate: 'Wholesale Yarn Rate',
+    specifications: {
+      material: 'Raw Jute Yarn',
+      weaveType: '5-Ply Twisted Yarn',
+      color: 'Dark Natural Brown',
+      stitching: 'Bale Binding Spool',
+      grade: 'Heavy Industrial Class'
+    }
+  },
+  {
+    name: 'Normal Jute Thread / Twine',
+    slug: 'normal-jute-thread-twine',
+    category: 'Jute Thread',
+    subcategory: 'General Packaging Twine',
+    capacity: '500g / 1kg Ball',
+    dimensions: '2-Ply Standard Twine',
+    gsm: 'Standard Packaging Twine',
+    description: 'Versatile 2-ply normal jute twine ball for general commercial packaging, parcel tying, craft applications, and retail bundling.',
+    features: [
+      'Soft & Easy to Tie',
+      'Eco-Friendly Natural Twine',
+      'Economical Bulk Packaging Solution',
+      'Smooth Surface Finish'
+    ],
+    image: 'https://images.unsplash.com/photo-1606760227091-3dd850d97f1d?auto=format&fit=crop&w=800&q=80',
+    isFeatured: false,
+    inStock: true,
+    minOrderQuantity: '50 Balls',
+    priceEstimate: 'Bulk Twine Rate',
+    specifications: {
+      material: 'Natural Raw Jute',
+      weaveType: '2-Ply Twine Ball',
+      color: 'Natural Brown',
+      stitching: 'General Binding',
+      grade: 'Commercial Class'
+    }
   },
 
-  // --- 2ND JUTE BAGS ---
+  // --- 4. CATEGORY: 2ND JUTE BAGS (USED/GRADE-A) ---
   {
-    name: 'Grade-A Clean Once-Used Burlap Jute Bag (50kg)',
-    slug: 'grade-a-clean-once-used-burlap-jute-bag',
+    name: '50kg 2nd Hand Jute Bag (Once-Used, Cleaned)',
+    slug: '50kg-2nd-hand-jute-bag',
     category: '2nd Jute Bags',
     subcategory: 'Recycled Commercial Sacks',
     capacity: '50 kg',
     dimensions: '94cm x 57cm',
     gsm: '320 GSM',
-    description: 'Thoroughly inspected, cleaned, and sorted once-used Grade-A burlap jute bag. Provides budget-friendly packaging for grains, potatoes, onions, and sand.',
+    description: 'Thoroughly inspected, cleaned, and sorted once-used Grade-A burlap jute bag. Offers budget-friendly packaging for grains, potatoes, onions, and sand storage.',
     features: [
-      '100% Sorted & Free from Holes or Tears',
-      'Cleaned & Odor-Inspected Material',
-      'Ultra Economical Packaging Solution',
+      '100% Hand-Sorted & Tear Inspected',
+      'Cleaned & Odor-Free Material',
+      'Up to 40% Cost Savings vs New Sacks',
       'High Reusability Lifecycle'
     ],
     image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1000 Bags',
-    priceEstimate: 'Low-Cost Wholesale Rate',
+    priceEstimate: 'Low-Cost Mandi Rate',
     specifications: {
-      material: 'Pre-Owned Grade-A Burlap Jute',
+      material: 'Pre-Owned Burlap Jute',
       weaveType: 'B-Twill / Plain Weave',
       color: 'Natural Brown',
       stitching: 'Inspected Bottom Stitch',
-      grade: 'Sorted Second Hand Class A'
+      grade: 'Grade-A Sorted Second Hand'
     }
   },
-
-  // --- EXISTING PLASTIC FABRIC ROLLS ---
   {
-    name: 'HDPE / PP Woven Fabric Roll',
-    slug: 'hdpe-pp-woven-fabric-roll',
-    category: 'Plastic Roll',
-    subcategory: 'Woven Fabric Rolls',
-    capacity: '500m / 1000m Roll',
-    dimensions: 'Width: 48 to 72 Inches',
-    gsm: '80 - 120 GSM',
-    description: 'High-density circular woven polymer fabric rolls available in green, yellow, and white shades. Engineered for automated bag manufacturing, agricultural shading, and industrial coverings.',
+    name: '25kg 2nd Hand Jute Bag (Once-Used, Cleaned)',
+    slug: '25kg-2nd-hand-jute-bag',
+    category: '2nd Jute Bags',
+    subcategory: 'Recycled Light Sacks',
+    capacity: '25 kg',
+    dimensions: '75cm x 48cm',
+    gsm: '290 GSM',
+    description: 'Cleaned once-used 25kg second-hand jute bag sorted for APMC mandi merchants, seed dealers, and commercial commodity storage.',
     features: [
-      'High Tensile Burst & Tear Strength',
-      'Available in Green, Yellow & White Shades',
-      'UV Stabilized Polymer Weave',
-      'Ideal for Automatic Bag Stitching Machines'
+      'Rigorously Hand-Sorted Quality',
+      'Clean Interior Free from Debris',
+      'Budget-Friendly Wholesale Supply',
+      'Immediate Stock Availability'
     ],
-    image: '/images/pp plastic roll white,yellow,green,.jpg',
+    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80',
     isFeatured: true,
     inStock: true,
-    minOrderQuantity: '2 Rolls (1000m)',
-    priceEstimate: 'Factory Direct Roll Rates',
+    minOrderQuantity: '1000 Bags',
+    priceEstimate: 'Economical Mandi Price',
     specifications: {
-      material: 'Virgin HDPE / PP Polymer',
-      weaveType: 'Circular Woven Roll',
-      color: 'Green / Yellow / White',
-      stitching: 'Unstitched Continuous Roll',
-      grade: 'Industrial Roll Grade'
+      material: 'Clean Used Jute Fiber',
+      weaveType: 'Plain Weave',
+      color: 'Natural Light Brown',
+      stitching: 'Inspected Seams',
+      grade: 'Grade-A Used'
     }
   },
 
-  // --- PLASTIC BAGS ---
+  // --- 5. CATEGORY: PLASTIC (WOVEN GUNNY BAGS) ---
   {
-    name: 'Al-Ameen Feeds TMR Meal Plastic Bag',
-    slug: 'al-ameen-feeds-tmr-meal-plastic-bag',
+    name: 'Laminated Plastic Gunny Bag (Moisture Resistant)',
+    slug: 'laminated-plastic-gunny-bag',
     category: 'Plastic',
-    subcategory: 'Animal Feed Packaging',
+    subcategory: 'Laminated Polymer Sacks',
     capacity: '50 kg',
     dimensions: '90cm x 55cm',
     gsm: '85 GSM',
-    description: 'Heavy-duty HDPE/PP woven plastic bag customized for Al-Ameen Feeds TMR Meal. High tensile strength, moisture-proof inner lining, and durable print finish for animal feed storage.',
+    description: 'Heavy-duty HDPE/PP woven plastic gunny bag with inner moisture-proof lamination. Perfect for animal feed, fertilizer, sugar, and flour packaging.',
     features: [
-      'Moisture & Water Proof Lamination',
-      'UV Treated Outer Layer for Outdoor Stacking',
-      'High Seam Bursting Strength',
-      'Custom Brand Flexographic Printing'
+      '100% Waterproof & Moisture Resistant',
+      'UV-Treated Outer Fabric for Outdoor Stacking',
+      'High Tensile Seam Burst Strength',
+      'Custom Multicolor Flexo Printing'
     ],
     image: '/images/Gemini_Generated_Image_guy2urguy2urguy2.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1000 Bags',
-    priceEstimate: 'Direct Manufacturer Rate'
+    priceEstimate: 'Direct Factory Rate',
+    specifications: {
+      material: 'HDPE/PP Woven Polymer',
+      weaveType: 'Circular Laminated Mesh',
+      color: 'White / Yellow / Custom',
+      stitching: 'Bottom Fold Stitch',
+      grade: 'Industrial Feed Grade'
+    }
   },
   {
-    name: 'Sri Krishna Brand White Plastic Bag',
-    slug: 'sri-krishna-brand-white-plastic-bag',
+    name: 'Unlaminated Plastic Gunny Bag (Breathable)',
+    slug: 'unlaminated-plastic-gunny-bag',
     category: 'Plastic',
-    subcategory: 'Food & Flour Packaging',
+    subcategory: 'Breathable Woven Sacks',
     capacity: '25 kg / 50 kg',
-    dimensions: '75cm x 48cm',
-    gsm: '80 GSM',
-    description: 'Premium milky-white PP woven plastic bag designed for Sri Krishna Brand grains, flour, and agricultural produce. Offers clean aesthetics and puncture resistance.',
-    features: ['Milky White High-Finish Fabric', 'Fine Weave Mesh Prevents Powder Leakage'],
+    dimensions: '85cm x 50cm',
+    gsm: '75 GSM',
+    description: 'Standard unlaminated HDPE/PP woven plastic gunny bag offering breathable ventilation for grains, pulses, potatoes, and general commodities.',
+    features: [
+      'Breathable Mesh Pattern Prevents Sweat',
+      'Puncture Resistant Polymer Weave',
+      'Lightweight & High Strength',
+      'Cost-Effective Packaging'
+    ],
     image: '/images/sri-krishna-bag.png',
     isFeatured: true,
     inStock: true,
-    minOrderQuantity: '1000 Bags'
+    minOrderQuantity: '1000 Bags',
+    priceEstimate: 'Wholesale Unit Rate',
+    specifications: {
+      material: 'Virgin HDPE Polymer',
+      weaveType: 'Unlaminated Circular Mesh',
+      color: 'Milky White',
+      stitching: 'Single / Double Stitch',
+      grade: 'Standard Grain Sack'
+    }
+  },
+  {
+    name: 'Custom Printed Plastic Gunny Bag (Multicolor Flexo)',
+    slug: 'custom-printed-plastic-gunny-bag',
+    category: 'Plastic',
+    subcategory: 'Branded Commercial Sacks',
+    capacity: '25 kg / 50 kg',
+    dimensions: '90cm x 55cm',
+    gsm: '90 GSM',
+    description: 'High-definition flexo printed HDPE woven plastic gunny bag customized with client mill logo, product details, and branding graphics.',
+    features: [
+      'High-Resolution Flexo Brand Printing',
+      'Custom Colors & Brand Artwork',
+      'High Load Bearing Capacity',
+      'Durable Gloss / Matte Finish'
+    ],
+    image: '/images/Gemini_Generated_Image_guy2urguy2urguy2.png',
+    isFeatured: false,
+    inStock: true,
+    minOrderQuantity: '2000 Bags',
+    priceEstimate: 'Custom Print Quote',
+    specifications: {
+      material: 'PP/HDPE Laminated Woven',
+      weaveType: 'Flexo Printed Mesh',
+      color: 'Custom Multicolor',
+      stitching: 'Reinforced Bottom Seam',
+      grade: 'Custom Brand Grade'
+    }
   },
 
-  // --- JUTE BAGS ---
+  // --- 6. CATEGORY: PLASTIC ROLL (PP/HDPE FABRIC) ---
   {
-    name: 'A-Twill Food-Grade Hydrocarbon Free Jute Bag',
-    slug: 'a-twill-food-grade-jute-bag',
-    category: 'Jute',
-    subcategory: 'Food Grade Export Sacks',
-    capacity: '50 kg',
-    dimensions: '94cm x 57cm',
-    gsm: '330 GSM',
-    description: 'Premium hydro-carbon free A-Twill Jute Bag specially processed for food-grade packaging. Ideal for exporting coffee beans, cocoa, cashew nuts, and high-value grains.',
-    features: ['100% Biodegradable', 'Hydrocarbon-Free Processed (VO Standards)'],
-    image: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=800&q=80',
+    name: 'Laminated Plastic Roll (Weatherproof)',
+    slug: 'laminated-plastic-roll',
+    category: 'Plastic Roll',
+    subcategory: 'Weatherproof Fabric Rolls',
+    capacity: 'Custom Length / Bulk',
+    dimensions: 'Width: 48 to 72 Inches',
+    gsm: '90 - 140 GSM',
+    description: 'Poly-laminated weather-resistant PP woven fabric roll. Provides 100% moisture protection for custom bag manufacturing, tarpaulins, and export coverings.',
+    features: [
+      'Inner LDPE Lamination Barrier',
+      '100% Waterproof & Weatherproof',
+      'High Tear Resistance under Heavy Tension',
+      'Multi-Color Options (White, Yellow, Green)'
+    ],
+    image: '/images/pp plastic roll white,yellow,green,.jpg',
     isFeatured: true,
     inStock: true,
-    minOrderQuantity: '500 Bags'
+    minOrderQuantity: '1 Roll / 500 Meters',
+    priceEstimate: 'Factory Direct Roll Rate',
+    specifications: {
+      material: 'HDPE/PP Polymer',
+      print: 'Solid White, Yellow, Green',
+      usage: 'Export Packaging, Heavy-Duty Sacks'
+    }
   },
   {
-    name: 'B-Twill Standard Heavy Grain Jute Sack',
-    slug: 'b-twill-standard-grain-jute-sack',
-    category: 'Jute',
-    subcategory: 'Agricultural Sacks',
-    capacity: '50 kg / 100 kg',
-    dimensions: '112cm x 67.5cm',
-    gsm: '380 GSM',
-    description: 'The industry-standard B-Twill Jute Sack widely utilized across India for bulk packaging of rice, wheat, maize, and pulses.',
-    features: ['Heavy-Duty Load Capacity', 'Non-Slip Stacking'],
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
+    name: 'Unlaminated Plastic Roll (Standard Woven)',
+    slug: 'unlaminated-plastic-roll',
+    category: 'Plastic Roll',
+    subcategory: 'Standard Woven Rolls',
+    capacity: 'Custom Length / Bulk',
+    dimensions: 'Width: 24 to 48 Inches',
+    gsm: '80 - 120 GSM',
+    description: 'High-density unlaminated PP woven fabric roll featuring a distinct yellow and red stripe pattern. Ideal for automated bag stitching machines and industrial wrapping.',
+    features: [
+      'Distinct Yellow & Red Stripe Pattern',
+      'High Tensile Polypropylene Woven Mesh',
+      'Ideal for Automatic Bag Stitching Machines',
+      'UV Stabilized Polymer Weave'
+    ],
+    image: '/images/polypropylene-woven-sack-fabric-roll yellow wit red.jpg',
     isFeatured: true,
     inStock: true,
-    minOrderQuantity: '1000 Bags'
+    minOrderQuantity: '1 Roll / 500 Meters',
+    priceEstimate: 'Bulk Roll Rate',
+    specifications: {
+      material: 'PP Woven Fabric',
+      print: 'Yellow with Red Stripe',
+      usage: 'Industrial Wrapping, Custom Bags'
+    }
   }
 ];
 
