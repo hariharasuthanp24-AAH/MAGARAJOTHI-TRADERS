@@ -64,11 +64,8 @@ const productSchema = new mongoose.Schema(
       default: 'Bulk Wholesale Pricing Available',
     },
     specifications: {
-      material: String,
-      weaveType: String,
-      color: String,
-      stitching: String,
-      grade: String,
+      type: mongoose.Schema.Types.Mixed,
+      default: {},
     },
   },
   {

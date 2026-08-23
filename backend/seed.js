@@ -5,7 +5,61 @@ const Product = require('./models/Product');
 dotenv.config();
 
 const sampleProducts = [
-  // --- NANO BAGS (NEW) ---
+  // --- PLASTIC ROLL (NEW PRODUCTS) ---
+  {
+    name: 'Roll 1',
+    slug: 'roll-1-pp-woven-fabric',
+    category: 'Plastic Roll',
+    subcategory: 'Polypropylene Woven Roll',
+    capacity: 'Custom Length / Bulk',
+    dimensions: 'Standard Roll Width (24 - 48 in)',
+    gsm: '80 - 120 GSM',
+    description: 'High-quality Polypropylene (PP) woven sack fabric roll featuring a distinct yellow and red stripe pattern. Ideal for custom bag manufacturing, industrial wrapping, and bulk agricultural packaging.',
+    features: [
+      'Distinct Yellow & Red Stripe Pattern',
+      'High Tensile Polypropylene Woven Fabric',
+      'Industrial Wrapping & Custom Bag Manufacturing',
+      'Weather Resistant & UV Stabilized'
+    ],
+    image: '/images/polypropylene-woven-sack-fabric-roll yellow wit red.jpg',
+    isFeatured: true,
+    inStock: true,
+    minOrderQuantity: '1 Roll / 500 Meters',
+    priceEstimate: 'Factory Direct Rate',
+    specifications: {
+      material: 'PP Woven Fabric',
+      print: 'Yellow with Red Stripe',
+      usage: 'Industrial Wrapping, Custom Bags'
+    }
+  },
+  {
+    name: 'Roll 2',
+    slug: 'roll-2-multi-color-pp-roll',
+    category: 'Plastic Roll',
+    subcategory: 'Multi-Color Polymer Roll',
+    capacity: 'Custom Length / Bulk',
+    dimensions: 'Custom Roll Widths',
+    gsm: '90 - 140 GSM',
+    description: 'Premium multi-color PP plastic woven fabric rolls available in solid white, yellow, and green variants. Engineered for high tensile strength and weather resistance, perfect for heavy-duty commercial export packaging.',
+    features: [
+      'Multi-Color Options (White, Yellow, Green)',
+      'High Tensile Strength Polymer Mesh',
+      'Weather & Moisture Resistant',
+      'Heavy-Duty Commercial Export Grade'
+    ],
+    image: '/images/pp plastic roll white,yellow,green,.jpg',
+    isFeatured: true,
+    inStock: true,
+    minOrderQuantity: '1 Roll / 500 Meters',
+    priceEstimate: 'Wholesale Export Price',
+    specifications: {
+      material: 'HDPE/PP Polymer',
+      print: 'Solid White, Yellow, Green',
+      usage: 'Export Packaging, Heavy-Duty Sacks'
+    }
+  },
+
+  // --- NANO BAGS ---
   {
     name: 'Compact Eco Laminated Nano Jute Bag',
     slug: 'compact-eco-laminated-nano-jute-bag',
@@ -56,7 +110,7 @@ const sampleProducts = [
     priceEstimate: 'Factory Direct Price'
   },
 
-  // --- JUTE THREAD (NEW) ---
+  // --- JUTE THREAD ---
   {
     name: '3-Ply Heavy Duty Natural Jute Thread Spool',
     slug: '3-ply-heavy-duty-natural-jute-thread-spool',
@@ -107,7 +161,7 @@ const sampleProducts = [
     priceEstimate: 'Wholesale Yarn Rate'
   },
 
-  // --- 2ND JUTE BAGS (NEW) ---
+  // --- 2ND JUTE BAGS ---
   {
     name: 'Grade-A Clean Once-Used Burlap Jute Bag (50kg)',
     slug: 'grade-a-clean-once-used-burlap-jute-bag',
@@ -136,29 +190,8 @@ const sampleProducts = [
       grade: 'Sorted Second Hand Class A'
     }
   },
-  {
-    name: 'Sorted Heavy Duty 2nd Hand Agricultural Jute Sack',
-    slug: 'sorted-heavy-duty-2nd-hand-agricultural-jute-sack',
-    category: '2nd Jute Bags',
-    subcategory: 'Pre-Owned Mandi Sacks',
-    capacity: '50 kg / 100 kg',
-    dimensions: '110cm x 68cm',
-    gsm: '350 GSM',
-    description: 'Sorted heavy-duty 2nd hand agricultural jute sack curated for APMC mandi farmers, sugar mills, and bulk commodity warehousing.',
-    features: [
-      'High Load Capacity for Heavy Produce',
-      'Quality Graded by Hand Specialists',
-      'Cost Reduction of up to 40% vs New Sacks',
-      'Immediate Bulk Stock Availability'
-    ],
-    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80',
-    isFeatured: false,
-    inStock: true,
-    minOrderQuantity: '1000 Bags',
-    priceEstimate: 'Mandi Budget Rate'
-  },
 
-  // --- PLASTIC ROLL (RENAMED FROM PLASTIC ROLLS) ---
+  // --- EXISTING PLASTIC FABRIC ROLLS ---
   {
     name: 'HDPE / PP Woven Fabric Roll',
     slug: 'hdpe-pp-woven-fabric-roll',
@@ -174,7 +207,7 @@ const sampleProducts = [
       'UV Stabilized Polymer Weave',
       'Ideal for Automatic Bag Stitching Machines'
     ],
-    image: '/images/products/plastic-rolls-multi.jpg',
+    image: '/images/pp plastic roll white,yellow,green,.jpg',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '2 Rolls (1000m)',
@@ -187,29 +220,8 @@ const sampleProducts = [
       grade: 'Industrial Roll Grade'
     }
   },
-  {
-    name: 'Heavy-Duty Laminated Polymer Fabric Roll',
-    slug: 'heavy-duty-laminated-polymer-fabric-roll',
-    category: 'Plastic Roll',
-    subcategory: 'Laminated Rolls',
-    capacity: '500m Roll',
-    dimensions: 'Width: 60 to 96 Inches',
-    gsm: '90 - 150 GSM',
-    description: 'Poly-laminated weather-resistant woven fabric roll. Provides 100% moisture protection for custom packaging fabrication, tarpaulins, and bulk grain covering.',
-    features: [
-      'Inner LDPE Lamination Barrier',
-      '100% Moisture & Water Proof',
-      'High Tear Resistance under Heavy Tension',
-      'Custom Sizing & Color Options'
-    ],
-    image: '/images/products/plastic-rolls-fabric.jpg',
-    isFeatured: true,
-    inStock: true,
-    minOrderQuantity: '2 Rolls (1000m)',
-    priceEstimate: 'Bulk Wholesale Pricing'
-  },
 
-  // --- PLASTIC GUNNY BAGS ---
+  // --- PLASTIC BAGS ---
   {
     name: 'Al-Ameen Feeds TMR Meal Plastic Bag',
     slug: 'al-ameen-feeds-tmr-meal-plastic-bag',
