@@ -66,9 +66,9 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 transition-all duration-300 font-sans shadow-sm">
-      {/* Navigation Container */}
-      <nav className={`transition-all duration-300 ${isScrolled ? 'bg-white/98 backdrop-blur-md py-3 border-b border-gray-200 shadow-md' : 'bg-[#FAF6F0] py-3.5 border-b border-gray-200'}`}>
+    <header className="sticky top-0 z-50 transition-all duration-300 font-sans bg-white shadow-md">
+      {/* Navigation Container (Strict Solid White + Elevation Shadow) */}
+      <nav className={`transition-all duration-300 bg-white border-b border-gray-200/80 ${isScrolled ? 'py-3 shadow-md' : 'py-3.5 shadow-sm'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center h-14 md:h-16">
           
           {/* Logo Area */}
@@ -102,7 +102,7 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
               About Us
             </button>
 
-            {/* Products Dropdown (With Hover Bridge & Intent Delay) */}
+            {/* Products Dropdown */}
             <div 
               className="relative group" 
               onMouseEnter={handleMouseEnterDropdown}
@@ -116,7 +116,7 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
                 <ChevronDown size={16} className={`transition-transform duration-200 ${productDropdownOpen ? 'rotate-180 text-jute-dark' : ''}`} />
               </button>
 
-              {/* Absolute Dropdown Container with Transparent Hover Bridge & Delay */}
+              {/* Dropdown Container */}
               {productDropdownOpen && (
                 <div 
                   className="absolute top-full left-0 z-50 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 p-2 pt-2 mt-1 flex flex-col gap-1 
@@ -256,7 +256,7 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
 
         {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 px-5 py-5 flex flex-col gap-3 shadow-xl text-base font-semibold">
+          <div className="lg:hidden bg-white border-t border-gray-200 px-5 py-5 flex flex-col gap-3 shadow-xl text-base font-semibold">
             <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-left text-gray-900 py-1.5 border-b border-gray-100">
               Home
             </Link>
