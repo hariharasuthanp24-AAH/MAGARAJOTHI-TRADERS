@@ -36,7 +36,7 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section id="why-us-section" className="py-20 md:py-28 bg-[#F8F9FA] font-sans border-b border-gray-200">
+    <section id="why-us-section" className="py-20 md:py-28 bg-white font-sans border-y border-gray-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Scaled Section Header */}
@@ -50,27 +50,27 @@ const WhyChooseUs = () => {
             Why Leading Exporters Choose <span className="text-jute-dark">Magarajothi Traders</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-4 leading-relaxed font-normal">
+          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mt-4 leading-relaxed font-normal">
             Delivering uncompromised jute quality, food-grade eco compliance, and reliable commercial merchant trading.
           </p>
         </div>
 
-        {/* Enhanced Depth Grid Layout (gap-8 md:gap-10 lg:gap-12) */}
+        {/* Enhanced Depth Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {reasons.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1"
+                className="bg-[#FAF6F0] p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1"
               >
-                <div className="w-14 h-14 rounded-2xl bg-jute-light/20 text-jute-dark flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-jute-light/30">
+                <div className="w-14 h-14 rounded-2xl bg-white text-jute-dark flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-gray-200 shadow-sm">
                   <Icon size={28} className="text-jute-dark" />
                 </div>
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-3 group-hover:text-jute-dark transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-base text-gray-600 leading-relaxed font-normal">
+                <p className="text-base text-gray-700 leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>
