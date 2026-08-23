@@ -50,17 +50,17 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
   const activeSlide = slides[currentSlide];
 
   return (
-    <section className="relative bg-[#FAF6F0] overflow-hidden py-16 md:py-24 font-sans border-b border-gray-200">
+    <section className="relative bg-[#FAF6F0] overflow-hidden py-20 md:py-28 font-sans border-b border-gray-200">
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Text Content */}
+          {/* Scaled Text Content */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 bg-jute-light/20 text-jute-dark font-bold px-4 py-1.5 rounded-full text-xs tracking-wide uppercase">
-              <Leaf size={14} className="text-jute-dark" />
+            <div className="inline-flex items-center gap-2 bg-jute-light/20 text-jute-dark font-bold px-4 py-1.5 rounded-full text-xs md:text-sm tracking-wide uppercase">
+              <Leaf size={16} className="text-jute-dark" />
               <span>{activeSlide.badge}</span>
             </div>
 
@@ -70,44 +70,44 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
             </h1>
 
             {/* Subheading */}
-            <p className="text-gray-700 text-sm sm:text-lg max-w-2xl font-normal leading-relaxed">
+            <p className="text-gray-700 text-base sm:text-xl max-w-2xl font-normal leading-relaxed">
               {activeSlide.subtitle}
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            {/* Scaled CTAs */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
               <button
                 onClick={() => {
                   if (onSelectCategory) onSelectCategory(activeSlide.category);
                   const el = document.getElementById('products-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-jute-dark text-white hover:bg-jute font-semibold rounded-md px-6 py-3 transition-colors shadow-md text-xs tracking-wider uppercase flex items-center gap-2"
+                className="bg-jute-dark text-white hover:bg-jute font-bold rounded-xl px-8 py-3.5 transition-colors shadow-md text-sm tracking-wider uppercase flex items-center gap-2"
               >
                 <span>{activeSlide.primaryCta}</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={18} />
               </button>
 
               <button
                 onClick={() => onOpenInquiry && onOpenInquiry(null, activeSlide.category)}
-                className="border-2 border-jute-dark text-jute-dark hover:bg-jute-dark hover:text-white font-semibold rounded-md px-6 py-2.5 text-xs tracking-wider uppercase transition-colors"
+                className="border-2 border-jute-dark text-jute-dark hover:bg-jute-dark hover:text-white font-bold rounded-xl px-8 py-3 text-sm tracking-wider uppercase transition-colors"
               >
                 {activeSlide.secondaryCta}
               </button>
             </div>
 
-            {/* Trust Indicators / Bottom Icons */}
-            <div className="pt-6 border-t border-gray-200 grid grid-cols-3 gap-4 text-gray-600 font-medium text-xs">
+            {/* Trust Indicators */}
+            <div className="pt-8 border-t border-gray-200 grid grid-cols-3 gap-4 text-gray-700 font-semibold text-xs sm:text-sm">
               <div className="flex items-center gap-2 justify-center lg:justify-start">
-                <ShieldCheck className="text-jute-dark w-4 h-4 shrink-0" />
+                <ShieldCheck className="text-jute-dark w-5 h-5 shrink-0" />
                 <span>ISO Certified Merchant</span>
               </div>
               <div className="flex items-center gap-2 justify-center lg:justify-start">
-                <Award className="text-jute-dark w-4 h-4 shrink-0" />
+                <Award className="text-jute-dark w-5 h-5 shrink-0" />
                 <span>Direct Mill Rates</span>
               </div>
               <div className="flex items-center gap-2 justify-center lg:justify-start">
-                <Truck className="text-jute-dark w-4 h-4 shrink-0" />
+                <Truck className="text-jute-dark w-5 h-5 shrink-0" />
                 <span>Pan-India & Export</span>
               </div>
             </div>
@@ -116,7 +116,7 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
 
           {/* Visual Card Slider */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 group h-80 sm:h-96">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 group h-88 sm:h-104">
               <img
                 src={activeSlide.image}
                 alt={activeSlide.title}
@@ -124,25 +124,25 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" />
               
-              <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
-                <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200 text-xs shadow-sm">
+              <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                <div className="bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm shadow-md">
                   <span className="text-jute-dark font-bold block">{activeSlide.category} Range</span>
-                  <span className="text-gray-700">High Strength Export Quality</span>
+                  <span className="text-gray-700 font-medium">High Strength Export Quality</span>
                 </div>
 
                 {/* Arrow Controls */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={prevSlide}
-                    className="w-9 h-9 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
+                    className="w-10 h-10 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
                   >
-                    <ChevronLeft size={20} />
+                    <ChevronLeft size={22} />
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="w-9 h-9 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
+                    className="w-10 h-10 rounded-full bg-gray-900/60 hover:bg-jute-dark text-white flex items-center justify-center backdrop-blur-sm transition"
                   >
-                    <ChevronRight size={20} />
+                    <ChevronRight size={22} />
                   </button>
                 </div>
               </div>
