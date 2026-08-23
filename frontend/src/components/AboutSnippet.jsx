@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2, ArrowUpRight, Leaf } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, ArrowUpRight, Leaf, Truck } from 'lucide-react';
 
 const AboutSnippet = ({ onOpenInquiry }) => {
   return (
@@ -39,19 +39,21 @@ const AboutSnippet = ({ onOpenInquiry }) => {
               <span>Premier Merchant & Exporter</span>
             </div>
 
+            {/* High-Contrast Bold Accent for Headings */}
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-tight">
-              Pioneering Sustainable <span className="text-jute-dark">Jute & Eco Packaging</span> Solutions Across India
+              Pioneering Sustainable <span className="text-jute-dark font-black">Jute & Eco Packaging</span> Solutions Across India
             </h2>
 
+            {/* Paragraph with Brand Marker Highlights */}
             <p className="text-gray-700 text-base md:text-lg leading-relaxed font-normal">
-              Established in Dharapuram, Tamil Nadu, <strong>Magarajothi Traders</strong> is a trusted merchant business supplying premium 100% natural Jute Bags, Nano Bags, Jute Thread spools, 2nd Jute Bags, and HDPE Plastic Rolls to agricultural mills, exporters, and commercial industries.
+              Established in Dharapuram, Tamil Nadu, <strong className="text-gray-900 font-bold">Magarajothi Traders</strong> is a trusted merchant supplying <span className="bg-jute-light/20 text-gray-900 font-bold px-1.5 py-0.5 rounded-md border border-jute-light/40">100% Natural Jute Bags</span>, Nano Bags, Jute Thread spools, Grade-A 2nd Jute Bags, and HDPE Plastic Rolls with <span className="bg-jute-light/20 text-gray-900 font-bold px-1.5 py-0.5 rounded-md border border-jute-light/40">Direct Mill Pricing</span> for exporters and agricultural mills.
             </p>
 
             {/* Core Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-base font-semibold text-gray-800">
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
-                <span>Food-Grade Hydrocarbon Free Jute</span>
+                <span><span className="bg-jute-light/20 text-gray-900 font-bold px-1.5 py-0.5 rounded-md">Food-Grade</span> Hydrocarbon Free</span>
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
@@ -63,12 +65,18 @@ const AboutSnippet = ({ onOpenInquiry }) => {
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
                 <CheckCircle2 className="w-5 h-5 text-jute-dark shrink-0" />
-                <span>Bulk Factory-Direct Wholesale Rates</span>
+                <span><span className="bg-jute-light/20 text-gray-900 font-bold px-1.5 py-0.5 rounded-md">Direct Mill</span> Wholesale Rates</span>
               </div>
             </div>
 
+            {/* Important Detail Callout Box */}
+            <div className="flex items-center gap-3 bg-emerald-50 border-l-4 border-emerald-600 text-emerald-950 p-4 rounded-r-xl text-xs sm:text-sm font-semibold shadow-sm">
+              <Truck className="w-5 h-5 text-emerald-700 shrink-0" />
+              <span>Pan-India Logistics & Immediate Dispatch Guarantee from Dharapuram Warehouse</span>
+            </div>
+
             {/* CTAs */}
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <button
                 onClick={() => onOpenInquiry && onOpenInquiry()}
                 className="bg-jute-dark text-white hover:bg-jute px-7 py-3.5 rounded-xl text-sm font-bold tracking-wider uppercase transition-colors shadow-md flex items-center gap-2"
