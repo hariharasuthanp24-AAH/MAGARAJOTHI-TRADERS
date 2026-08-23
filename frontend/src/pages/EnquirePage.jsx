@@ -98,29 +98,26 @@ const EnquirePage = () => {
                 <span className="text-gray-900 font-bold">Requirement Inquiry Desk</span>
               </div>
 
-              {/* Main Page Title */}
-              <h1 className="font-serif text-3xl sm:text-5xl font-bold text-gray-900 tracking-tight">
-                Get Commercial <span className="text-jute-dark">Jute Quote</span>
+              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                Commercial Inquiry & Quotation Desk
               </h1>
-
-              {/* Subheading */}
-              <p className="text-gray-700 text-base md:text-lg mt-3 max-w-2xl font-normal leading-relaxed">
-                Direct mill rates, custom bag printing, and bulk sample dispatch for Jute Bags, Nano Bags, Jute Thread, 2nd Jute Bags & Plastic Rolls.
+              <p className="text-gray-700 text-sm md:text-base mt-2 max-w-2xl font-normal">
+                Direct factory pricing, custom size specifications, and export dispatch quotes. Response guaranteed within 2 business hours.
               </p>
             </div>
 
-            {/* Official Logo Branding Card */}
-            <div className="flex items-center space-x-4 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+            {/* Quick Contact Badge */}
+            <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm flex items-center gap-4 shrink-0">
               <img
                 src="/logo.png"
-                alt="Magarajothi Traders Golden Logo Emblem"
-                className="w-14 h-14 rounded-full object-cover shadow-md border-2 border-jute-dark"
+                alt="Magarajothi Traders Emblem"
+                className="w-12 h-12 rounded-full object-cover border-2 border-jute-dark shrink-0"
               />
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-gray-900 text-lg leading-tight">
+              <div>
+                <span className="font-heading font-extrabold text-gray-900 text-lg leading-tight block">
                   MAGARAJOTHI
                 </span>
-                <span className="text-xs text-jute-dark font-bold uppercase tracking-widest">
+                <span className="text-xs text-jute-dark font-bold uppercase tracking-widest block">
                   TRADERS • DHARAPURAM
                 </span>
               </div>
@@ -181,107 +178,69 @@ const EnquirePage = () => {
                       <Mail size={18} className="text-jute-dark" />
                     </div>
                     <div>
-                      <span className="text-gray-500 block font-semibold">Official Email:</span>
-                      <a href="mailto:mjttraders.24@gmail.com" className="text-gray-900 font-bold hover:text-jute-dark transition-colors">
+                      <span className="text-gray-500 block font-semibold">Email Quotation Desk:</span>
+                      <a href="mailto:mjttraders.24@gmail.com" className="text-gray-900 font-extrabold text-sm hover:text-jute-dark transition-colors">
                         mjttraders.24@gmail.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 rounded-xl bg-jute-light/20 text-jute-dark flex items-center justify-center shrink-0 border border-jute-light/40">
-                      <Clock size={18} className="text-jute-dark" />
+                  {/* Official Working Hours */}
+                  <div className="flex items-start space-x-3 pt-2 border-t border-gray-100">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-300">
+                      <Clock size={18} className="text-emerald-800" />
                     </div>
                     <div>
-                      <span className="text-gray-500 block font-semibold">Working Hours:</span>
-                      <span className="text-gray-800 font-semibold">Monday – Saturday: 9:00 AM – 8:30 PM IST</span>
+                      <span className="text-gray-500 block font-semibold">Official Working Hours:</span>
+                      <span className="text-gray-900 font-bold block text-sm">
+                        Monday – Saturday
+                      </span>
+                      <span className="text-jute-dark font-extrabold text-xs block">
+                        9:00 AM – 6:30 PM IST
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-2">
-                  <div className="bg-[#FAF6F0] p-3 rounded-xl border border-gray-200 text-xs text-gray-700 font-semibold flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-jute-dark shrink-0" />
-                    <span>Instant WhatsApp Quotation Available on Mobile Desk</span>
+                <div className="pt-4 border-t border-gray-100 space-y-2 text-xs text-gray-600 font-semibold">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-jute-dark" />
+                    <span>Direct Factory & Mill Rates</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-jute-dark" />
+                    <span>Pan-India Fleet & Export Port Logistics</span>
                   </div>
                 </div>
-
-              </div>
-
-              {/* Embedded Google Map Frame */}
-              <div className="bg-white p-2 rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-                <iframe
-                  title="Magarajothi Traders Dharapuram Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.635817812975!2d77.5255!3d10.5878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9c5a1a1a1a1a1%3A0x1a1a1a1a1a1a1a1a!2sCholakadai%20St%2C%20Dharapuram%2C%20Tamil%20Nadu%20638656!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="220"
-                  style={{ border: 0, borderRadius: '1rem' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
               </div>
 
             </div>
 
-            {/* Right Column: Form Container */}
+            {/* Right Column: Interactive Commercial Form */}
             <div className="lg:col-span-7">
-              <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-gray-200 space-y-6">
+              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-200 space-y-6">
                 
-                <div>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900">
-                    Submit Formal Requirement
-                  </h2>
-                  <p className="text-gray-600 text-sm mt-1">
-                    Fill in your product specifications below. Our sales manager will contact you within 2 business hours.
+                <div className="border-b border-gray-100 pb-4">
+                  <h3 className="font-serif text-2xl font-bold text-gray-900">
+                    Submit Bulk Order Specification
+                  </h3>
+                  <p className="text-gray-600 text-xs mt-1">
+                    Fill out your commodity requirements below. Our commercial desk will issue a formal proforma invoice.
                   </p>
                 </div>
 
-                {/* Prefilled Item Notification */}
-                {productFromUrl && (
-                  <div className="bg-[#FAF6F0] p-4 rounded-xl border border-gray-200 flex items-center justify-between text-xs sm:text-sm">
-                    <div>
-                      <span className="text-gray-500 block font-semibold">Selected Item:</span>
-                      <span className="font-extrabold text-gray-900 text-sm sm:text-base">{productFromUrl}</span>
-                    </div>
-                    <span className="bg-jute-dark text-white px-3.5 py-1 rounded-lg font-bold">
-                      {categoryFromUrl} Category
-                    </span>
-                  </div>
-                )}
-
-                {/* Status Message */}
-                {status.type && (
-                  <div
-                    className={`p-4 rounded-xl flex items-start space-x-3 text-xs sm:text-sm ${
-                      status.type === 'success'
-                        ? 'bg-emerald-50 text-emerald-900 border border-emerald-300'
-                        : 'bg-rose-50 text-rose-900 border border-rose-300'
-                    }`}
-                  >
-                    {status.type === 'success' ? (
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    ) : (
-                      <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
-                    )}
-                    <div>
-                      <p className="font-bold">{status.message}</p>
-                    </div>
-                  </div>
-                )}
-
                 {status.success ? (
-                  <div className="py-8 text-center space-y-4">
-                    <div className="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto border-2 border-emerald-300">
-                      <CheckCircle2 size={36} />
+                  <div className="bg-emerald-50 border border-emerald-300 rounded-2xl p-8 text-center space-y-4">
+                    <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto shadow-md">
+                      <CheckCircle2 size={32} />
                     </div>
-                    <h3 className="font-serif text-2xl font-bold text-gray-900">Inquiry Received!</h3>
-                    <p className="text-gray-600 text-sm max-w-md mx-auto">
-                      Thank you for choosing Magarajothi Traders. Your requirement details have been sent to our sales desk.
+                    <h4 className="text-2xl font-bold text-emerald-950">Inquiry Received Successfully!</h4>
+                    <p className="text-gray-700 text-sm max-w-md mx-auto leading-relaxed">
+                      Thank you for contacting <strong>Magarajothi Traders</strong>. Our commercial team in Dharapuram has logged your requirement and will contact you via WhatsApp/Phone shortly.
                     </p>
                     <button
                       onClick={() => setStatus({ loading: false, success: false, error: null })}
-                      className="bg-jute-dark text-white hover:bg-jute font-semibold rounded-md px-6 py-2.5 text-xs uppercase tracking-wider transition-colors shadow"
+                      className="bg-jute-dark hover:bg-jute text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition"
                     >
                       Submit Another Requirement
                     </button>
@@ -289,32 +248,38 @@ const EnquirePage = () => {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     
-                    {/* Row 1: Name & Phone */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {status.error && (
+                      <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-xl text-xs font-semibold flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+                        <span>{status.error}</span>
+                      </div>
+                    )}
+
+                    {/* Name & Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                          Full Name <span className="text-rose-500">*</span>
+                          Full Name / Contact Person <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
                           name="name"
                           required
-                          placeholder="e.g. K. Rajasekaran"
+                          placeholder="e.g. Hariharan"
                           value={formData.name}
                           onChange={handleChange}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
-
                       <div>
                         <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                          Phone / WhatsApp Number <span className="text-rose-500">*</span>
+                          WhatsApp / Mobile Number <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="tel"
                           name="phone"
                           required
-                          placeholder="+91 90252 36106"
+                          placeholder="e.g. +91 9025236106"
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
@@ -322,23 +287,21 @@ const EnquirePage = () => {
                       </div>
                     </div>
 
-                    {/* Row 2: Email & Company */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {/* Email & Company */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                          Email Address <span className="text-rose-500">*</span>
+                          Email Address
                         </label>
                         <input
                           type="email"
                           name="email"
-                          required
-                          placeholder="mjttraders.24@gmail.com"
+                          placeholder="e.g. sales@yourcompany.com"
                           value={formData.email}
                           onChange={handleChange}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
                         />
                       </div>
-
                       <div>
                         <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
                           Company / Mill Name
@@ -346,7 +309,7 @@ const EnquirePage = () => {
                         <input
                           type="text"
                           name="company"
-                          placeholder="e.g. Sri Krishna Rice Mill"
+                          placeholder="e.g. Rice Mill / Merchant Name"
                           value={formData.company}
                           onChange={handleChange}
                           className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition"
@@ -354,28 +317,26 @@ const EnquirePage = () => {
                       </div>
                     </div>
 
-                    {/* Row 3: Category & Quantity */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {/* Product Category & Quantity */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
-                          Product Category
+                          Product Range Category
                         </label>
                         <select
                           name="productCategory"
                           value={formData.productCategory}
                           onChange={handleChange}
-                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition font-medium"
+                          className="w-full bg-[#FAF6F0] border border-gray-300 rounded-lg px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-jute-dark focus:bg-white transition font-semibold"
                         >
-                          <option value="Jute">🌾 Jute Bags (A-Twill, B-Twill, Hessian)</option>
-                          <option value="Nano Bags">👜 Nano Bags (Mini Eco Bags)</option>
-                          <option value="Jute Thread">🧵 Jute Thread (Twine & Yarn Spools)</option>
-                          <option value="2nd Jute Bags">♻️ 2nd Jute Bags (Clean Once-Used Sacks)</option>
-                          <option value="Plastic">🏗️ Plastic Bags (HDPE, PP Woven)</option>
-                          <option value="Plastic Roll">🌀 Plastic Roll (HDPE & PP Woven Rolls)</option>
-                          <option value="General Inquiry">📋 General Custom Order</option>
+                          <option value="Jute">Jute Bags (A-Twill, B-Twill)</option>
+                          <option value="Nano Bags">Nano Bags (Compact Pouches)</option>
+                          <option value="Jute Thread">Jute Thread (Twine Spools)</option>
+                          <option value="2nd Jute Bags">2nd Jute Bags (Grade-A Used)</option>
+                          <option value="Plastic">Plastic Bags (Woven Gunny Sacks)</option>
+                          <option value="Plastic Roll">Plastic Roll (HDPE Fabric Rolls)</option>
                         </select>
                       </div>
-
                       <div>
                         <label className="block text-xs font-semibold text-gray-900 uppercase mb-1">
                           Estimated Order Quantity

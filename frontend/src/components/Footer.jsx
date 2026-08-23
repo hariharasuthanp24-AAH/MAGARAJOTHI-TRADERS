@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Send, ShieldCheck, Leaf, ArrowRight, Award } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ShieldCheck, Leaf, ArrowRight, Award } from 'lucide-react';
 
 const Footer = ({ onSelectCategory, onOpenInquiry }) => {
 
@@ -15,7 +15,7 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
   return (
     <footer className="font-sans">
       
-      {/* Distinct Pre-Footer Contact Ribbon (bg-[#F4ECE1]) */}
+      {/* Distinct Pre-Footer Contact Ribbon */}
       <div className="bg-[#F4ECE1] border-t border-b border-gray-200 py-8 text-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
@@ -49,12 +49,12 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
         </div>
       </div>
 
-      {/* Main Grounded Footer Section (bg-gray-900 / bg-[#111827]) */}
+      {/* Main Grounded Footer Section */}
       <div className="bg-[#111827] text-gray-300 py-16 md:py-20 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
             
-            {/* Column 1: Brand Info (lg:col-span-4) */}
+            {/* Column 1: Brand Info */}
             <div className="lg:col-span-4 space-y-5">
               <div className="flex items-center gap-3">
                 <img
@@ -72,7 +72,7 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
                 </div>
               </div>
 
-              {/* Brand description including founding year */}
+              {/* Brand description including founding year 1985 */}
               <p className="text-gray-400 text-sm leading-relaxed font-normal max-w-sm">
                 A trusted name in merchant export since 1985. Authorized Supplier of 100% Food-Grade Jute Bags, Hessian Cloth, Jute Thread, Grade-A 2nd Jute Sacks & Industrial HDPE Plastic Rolls across India.
               </p>
@@ -93,7 +93,7 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
               </div>
             </div>
 
-            {/* Column 2: Quick Links (lg:col-span-2) */}
+            {/* Column 2: Navigation Links */}
             <div className="lg:col-span-2 space-y-4">
               <h4 className="font-bold text-white text-base uppercase tracking-wider border-b border-gray-800 pb-2">
                 Navigation
@@ -127,7 +127,7 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
               </ul>
             </div>
 
-            {/* Column 3: Eco Product Range (lg:col-span-3) */}
+            {/* Column 3: Eco Product Range */}
             <div className="lg:col-span-3 space-y-4">
               <h4 className="font-bold text-white text-base uppercase tracking-wider border-b border-gray-800 pb-2">
                 Product Range
@@ -161,7 +161,7 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
               </ul>
             </div>
 
-            {/* Column 4: Contact Info (lg:col-span-3) */}
+            {/* Column 4: Contact Info & Working Hours */}
             <div className="lg:col-span-3 space-y-4">
               <h4 className="font-bold text-white text-base uppercase tracking-wider border-b border-gray-800 pb-2">
                 Commercial Desk
@@ -186,6 +186,16 @@ const Footer = ({ onSelectCategory, onOpenInquiry }) => {
                   <a href="mailto:mjttraders.24@gmail.com" className="hover:text-jute transition-colors">
                     mjttraders.24@gmail.com
                   </a>
+                </div>
+
+                {/* Official Working Hours */}
+                <div className="flex items-start gap-2.5 pt-1 border-t border-gray-800/80">
+                  <Clock size={18} className="text-jute shrink-0 mt-0.5" />
+                  <div className="text-xs space-y-0.5">
+                    <span className="text-gray-400 block font-semibold">Working Hours:</span>
+                    <span className="text-white font-bold block">Monday – Saturday</span>
+                    <span className="text-jute font-semibold block">9:00 AM – 6:30 PM IST</span>
+                  </div>
                 </div>
               </div>
             </div>
