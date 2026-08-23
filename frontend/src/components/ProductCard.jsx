@@ -22,25 +22,27 @@ const ProductCard = ({ product, onViewDetails, onOpenInquiry }) => {
     }
   };
 
+  const imageSrc = product.image || '/logo.png';
+
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
       
-      {/* Prominent Image Header (h-64 object-cover) */}
-      <div className="relative h-64 overflow-hidden bg-[#FAF6F0] flex items-center justify-center border-b border-gray-100">
-        {!hasError && product.image ? (
+      {/* Universal Logo Container (object-contain p-6 bg-[#FAF6F0]) */}
+      <div className="relative h-64 overflow-hidden bg-[#FAF6F0] p-6 flex items-center justify-center border-b border-gray-100">
+        {!hasError ? (
           <img
-            src={product.image}
+            src={imageSrc}
             alt={product.name}
             onError={() => setHasError(true)}
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            className="max-h-full max-w-full object-contain p-2 group-hover:scale-105 transition-transform duration-500 drop-shadow-sm"
           />
         ) : (
           /* Graceful Branded Fallback Placeholder */
-          <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-200 flex flex-col items-center justify-center p-4 text-center space-y-2">
+          <div className="w-full h-full bg-[#FAF6F0] flex flex-col items-center justify-center p-4 text-center space-y-2">
             <img
               src="/logo.png"
               alt="Magarajothi Traders MT Logo"
-              className="w-16 h-16 rounded-full object-cover shadow-md border-2 border-jute-dark"
+              className="w-20 h-20 rounded-full object-cover shadow-md border-2 border-jute-dark"
             />
             <span className="font-heading font-extrabold text-base text-gray-900">
               MAGARAJOTHI TRADERS

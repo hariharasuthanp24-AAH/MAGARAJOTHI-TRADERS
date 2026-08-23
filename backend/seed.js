@@ -21,7 +21,7 @@ const sampleProducts = [
       'High Bursting Strength & Seam Safety',
       'Custom Mill Brand Printing Available'
     ],
-    image: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '500 Bags',
@@ -49,7 +49,7 @@ const sampleProducts = [
       'Breathable Mesh Structure',
       'Re-usable Lifecycle'
     ],
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1000 Bags',
@@ -77,7 +77,7 @@ const sampleProducts = [
       'Eco-Friendly Organic Packaging',
       'Custom Screen Logo Printing'
     ],
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: false,
     inStock: true,
     minOrderQuantity: '500 Bags',
@@ -107,7 +107,7 @@ const sampleProducts = [
       'High Tensile Bursting Resistance',
       'Reusable Commercial Bag'
     ],
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '500 Bags',
@@ -135,7 +135,7 @@ const sampleProducts = [
       'Eco-Friendly Brand Promotion',
       'Durable Load Capacity'
     ],
-    image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '500 Bags',
@@ -163,7 +163,7 @@ const sampleProducts = [
       'High Visual Aesthetics for Shelves',
       'Custom Brand Flexo Printing'
     ],
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: false,
     inStock: true,
     minOrderQuantity: '500 Bags',
@@ -193,7 +193,7 @@ const sampleProducts = [
       '100% Natural Raw Jute Fiber',
       'Smooth Feed in Stitching Machines'
     ],
-    image: 'https://images.unsplash.com/photo-1606760227091-3dd850d97f1d?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '50 Spools',
@@ -221,7 +221,7 @@ const sampleProducts = [
       'Continuous Length Spool Roll',
       'Soil-Safe Biodegradable'
     ],
-    image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '100 kg',
@@ -249,7 +249,7 @@ const sampleProducts = [
       'Economical Bulk Packaging Solution',
       'Smooth Surface Finish'
     ],
-    image: 'https://images.unsplash.com/photo-1606760227091-3dd850d97f1d?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: false,
     inStock: true,
     minOrderQuantity: '50 Balls',
@@ -279,7 +279,7 @@ const sampleProducts = [
       'Up to 40% Cost Savings vs New Sacks',
       'High Reusability Lifecycle'
     ],
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1000 Bags',
@@ -307,7 +307,7 @@ const sampleProducts = [
       'Budget-Friendly Wholesale Supply',
       'Immediate Stock Availability'
     ],
-    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1000 Bags',
@@ -337,7 +337,7 @@ const sampleProducts = [
       'High Tensile Seam Burst Strength',
       'Custom Multicolor Flexo Printing'
     ],
-    image: '/images/Gemini_Generated_Image_guy2urguy2urguy2.png',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1000 Bags',
@@ -365,7 +365,7 @@ const sampleProducts = [
       'Lightweight & High Strength',
       'Cost-Effective Packaging'
     ],
-    image: '/images/sri-krishna-bag.png',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1000 Bags',
@@ -393,7 +393,7 @@ const sampleProducts = [
       'High Load Bearing Capacity',
       'Durable Gloss / Matte Finish'
     ],
-    image: '/images/Gemini_Generated_Image_guy2urguy2urguy2.png',
+    image: '/logo.png',
     isFeatured: false,
     inStock: true,
     minOrderQuantity: '2000 Bags',
@@ -423,7 +423,7 @@ const sampleProducts = [
       'High Tear Resistance under Heavy Tension',
       'Multi-Color Options (White, Yellow, Green)'
     ],
-    image: '/images/pp plastic roll white,yellow,green,.jpg',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1 Roll / 500 Meters',
@@ -449,7 +449,7 @@ const sampleProducts = [
       'Ideal for Automatic Bag Stitching Machines',
       'UV Stabilized Polymer Weave'
     ],
-    image: '/images/polypropylene-woven-sack-fabric-roll yellow wit red.jpg',
+    image: '/logo.png',
     isFeatured: true,
     inStock: true,
     minOrderQuantity: '1 Roll / 500 Meters',
@@ -468,7 +468,7 @@ const seedData = async () => {
     await mongoose.connect(mongoUri);
     await Product.deleteMany({});
     const created = await Product.insertMany(sampleProducts);
-    console.log(`✅ Successfully seeded ${created.length} products into MongoDB!`);
+    console.log(`✅ Successfully seeded ${created.length} products with /logo.png!`);
     process.exit(0);
   } catch (error) {
     console.warn(`⚠️ Seeding note: ${error.message}`);

@@ -8,7 +8,7 @@ const slides = [
     badge: '🌱 100% BIODEGRADABLE & ECO-FRIENDLY',
     title: 'Natural Jute & Burlap Packaging Solutions',
     subtitle: 'Direct mill supply of Food-Grade A-Twill & Heavy Grain B-Twill Jute Bags engineered for agricultural commodities and global exporters.',
-    image: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1200&q=80',
+    image: '/logo.png',
     primaryCta: 'EXPLORE JUTE CATALOG',
     secondaryCta: 'REQUEST BULK QUOTE'
   },
@@ -18,7 +18,7 @@ const slides = [
     badge: '👜 ECO RETAIL & PROMOTIONAL BAGS',
     title: 'Compact Laminated Nano Jute Bags',
     subtitle: 'Luxury mini jute bags, promotional hessian pouches, and customizable retail gift packaging crafted from premium natural jute fiber.',
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+    image: '/logo.png',
     primaryCta: 'EXPLORE NANO BAGS',
     secondaryCta: 'CUSTOM BRANDING QUOTE'
   },
@@ -28,7 +28,7 @@ const slides = [
     badge: '🌀 HIGH-DENSITY WOVEN FABRIC ROLLS',
     title: 'HDPE / PP Polymer Fabric Rolls & Bags',
     subtitle: 'Weather-resistant laminated plastic fabric rolls, animal feed packaging, and high-tensile HDPE woven sacks for industrial storage.',
-    image: '/images/products/plastic-rolls-multi.jpg',
+    image: '/logo.png',
     primaryCta: 'VIEW PLASTIC ROLLS',
     secondaryCta: 'GET FACTORY DIRECT RATES'
   }
@@ -123,15 +123,15 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
 
           </div>
 
-          {/* Visual Card Slider */}
+          {/* Visual Card Slider (Universal Logo object-contain p-8 bg-white) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 group h-80 sm:h-96">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 group h-80 sm:h-96 bg-white p-8 flex items-center justify-center">
               <img
-                src={activeSlide.image}
+                src="/logo.png"
                 alt={activeSlide.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="max-w-full max-h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105 drop-shadow-md"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/65 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent" />
               
               <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
                 <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200 text-xs shadow-sm">
