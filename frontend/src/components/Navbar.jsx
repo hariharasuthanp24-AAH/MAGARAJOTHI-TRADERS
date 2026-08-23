@@ -51,33 +51,33 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300 font-sans shadow-sm">
-      {/* Prominent Navigation Container */}
-      <nav className={`transition-all duration-300 ${isScrolled ? 'bg-white/98 backdrop-blur-md py-4 md:py-5 border-b border-gray-200 shadow-md' : 'bg-[#FAF6F0] py-5 md:py-6 border-b border-gray-200'}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
+      {/* Prominent Header Wrapper (py-4 md:py-6) */}
+      <nav className={`transition-all duration-300 ${isScrolled ? 'bg-white/98 backdrop-blur-md py-4 md:py-5 border-b border-gray-200 shadow-md' : 'bg-[#FAF6F0] py-4 md:py-6 border-b border-gray-200'}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center h-16 md:h-20">
           
-          {/* Prominent Logo Area (Scaled to h-16 / h-20) */}
-          <Link to="/" className="flex items-center gap-4 md:gap-5 text-left group">
-            <div className="relative">
+          {/* Logo Container (h-16 md:h-20) */}
+          <Link to="/" className="flex items-center gap-4 md:gap-5 text-left group h-16 md:h-20">
+            <div className="relative shrink-0">
               <img 
                 src="/logo.png" 
                 alt="Magarajothi Traders Logo" 
-                className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg group-hover:scale-105 transition-transform duration-300 border-2 border-jute-dark" 
+                className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover shadow-lg group-hover:scale-105 transition-transform duration-300 border-2 border-jute-dark" 
               />
-              <div className="absolute -bottom-1 -right-1 bg-jute-dark text-white p-1.5 rounded-full border-2 border-white shadow">
+              <div className="absolute -bottom-1 -right-1 bg-jute-dark text-white p-1 rounded-full border-2 border-white shadow">
                 <Leaf size={14} />
               </div>
             </div>
-            <div className="flex flex-col">
-              <span className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight group-hover:text-jute-dark transition-colors tracking-tight">
+            <div className="flex flex-col justify-center">
+              <span className="font-heading text-2xl md:text-3xl font-black text-gray-900 leading-tight group-hover:text-jute-dark transition-colors tracking-tight">
                 MAGARAJOTHI
               </span>
-              <span className="text-xs sm:text-sm text-jute-dark tracking-[0.2em] font-bold uppercase">
-                TRADERS <span className="text-xs text-gray-500 font-medium lowercase">| eco packaging</span>
+              <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-jute-dark">
+                TRADERS <span className="text-xs text-gray-500 font-medium">| NATURE JUTE</span>
               </span>
             </div>
           </Link>
 
-          {/* Scaled Desktop Navigation Links (text-base / text-lg with gap-8 / gap-10) */}
+          {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-8 md:gap-10 font-semibold text-base md:text-lg text-gray-800">
             <Link to="/" className={`transition-colors py-1 ${location.pathname === '/' ? 'text-jute-dark font-bold border-b-2 border-jute-dark' : 'hover:text-jute-dark'}`}>
               Home
@@ -138,12 +138,12 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
             </Link>
           </div>
 
-          {/* Substantial Action Buttons */}
+          {/* Scaled Action Buttons */}
           <div className="hidden lg:flex items-center gap-4">
             {onOpenAdminModal && (
               <button 
                 onClick={onOpenAdminModal}
-                className="text-base text-gray-800 font-bold flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-5 py-3 rounded-xl transition border border-gray-300"
+                className="text-base text-gray-800 font-bold flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-5 py-3.5 rounded-xl transition border border-gray-300"
                 title="View Admin Leads Log"
               >
                 <ClipboardList className="w-5 h-5 text-jute-dark" /> View Leads
@@ -151,7 +151,7 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
             )}
             <button
               onClick={() => navigate('/enquire')}
-              className="bg-jute-dark text-white hover:bg-jute px-8 py-3.5 rounded-xl font-bold transition-all shadow-md text-base tracking-wide uppercase"
+              className="bg-jute-dark text-white hover:bg-jute px-8 py-3.5 rounded-xl font-bold transition-all shadow-md text-base md:text-lg tracking-wide uppercase"
             >
               Enquire Now
             </button>
@@ -191,7 +191,7 @@ const Navbar = ({ onSelectCategory, onOpenAdminModal }) => {
             )}
             <button
               onClick={() => { setMobileMenuOpen(false); navigate('/enquire'); }}
-              className="bg-jute-dark text-white text-center py-4 rounded-xl font-bold mt-2 text-base tracking-wider uppercase shadow-md"
+              className="bg-jute-dark text-white text-center py-4 rounded-xl font-bold mt-2 text-base md:text-lg tracking-wider uppercase shadow-md"
             >
               Enquire Now
             </button>
