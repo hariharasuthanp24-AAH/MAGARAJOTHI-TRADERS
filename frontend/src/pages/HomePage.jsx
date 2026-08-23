@@ -6,7 +6,6 @@ import AboutSnippet from '../components/AboutSnippet';
 import ProductGrid from '../components/ProductGrid';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Testimonials from '../components/Testimonials';
-import InquiryForm from '../components/InquiryForm';
 import AdminInquiriesModal from '../components/AdminInquiriesModal';
 import Footer from '../components/Footer';
 
@@ -18,7 +17,7 @@ const HomePage = () => {
   const handleOpenInquiry = (product = null, category = 'Jute') => {
     const prodParam = product ? `product=${encodeURIComponent(product.name)}&` : '';
     const catParam = `category=${encodeURIComponent(category || (product ? product.category : 'Jute'))}`;
-    navigate(`/enquire?${prodParam}${catParam}`);
+    navigate(`/contact?${prodParam}${catParam}`);
   };
 
   return (
@@ -45,8 +44,6 @@ const HomePage = () => {
 
       {/* Products Catalog Range */}
       <ProductGrid
-        activeCategory={activeCategory}
-        onSelectCategory={(cat) => setActiveCategory(cat)}
         onOpenInquiry={handleOpenInquiry}
       />
 
@@ -56,10 +53,7 @@ const HomePage = () => {
       {/* Testimonials Carousel */}
       <Testimonials />
 
-      {/* Lead Generation Section */}
-      <InquiryForm />
-
-      {/* Footer */}
+      {/* Clean Global Footer */}
       <Footer
         onSelectCategory={(cat) => setActiveCategory(cat)}
         onOpenInquiry={handleOpenInquiry}

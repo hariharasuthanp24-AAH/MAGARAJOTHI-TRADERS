@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import EnquirePage from './pages/EnquirePage';
+import ContactPage from './pages/ContactPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
       <div className="relative">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/enquire" element={<EnquirePage />} />
-          <Route path="/contact" element={<EnquirePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/enquire" element={<ContactPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
         
