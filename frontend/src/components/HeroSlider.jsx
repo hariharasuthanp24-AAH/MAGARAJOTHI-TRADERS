@@ -59,12 +59,12 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
   const activeSlide = slides[currentSlide];
 
   return (
-    <section className="relative bg-[#FAF6F0] overflow-hidden py-16 md:py-24 pb-28 md:pb-32 font-sans border-b border-gray-200">
+    <section className="relative w-full bg-[#FAF6F0] overflow-hidden pt-12 md:pt-20 pb-28 md:pb-36 font-sans border-b border-gray-200/80 m-0 p-0">
       
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Refined Text Content */}
+          {/* Text Content Area */}
           <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
             
             {/* Top Badge */}
@@ -83,7 +83,7 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
               {activeSlide.subtitle}
             </p>
 
-            {/* Refined CTAs */}
+            {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
               <button
                 onClick={() => {
@@ -106,7 +106,7 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="pt-6 border-t border-gray-200 grid grid-cols-3 gap-3 text-gray-800 font-semibold text-xs sm:text-sm">
+            <div className="pt-6 border-t border-gray-200/80 grid grid-cols-3 gap-3 text-gray-800 font-semibold text-xs sm:text-sm">
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <ShieldCheck className="text-jute-dark w-4.5 h-4.5 shrink-0" />
                 <span>ISO Certified</span>
@@ -123,15 +123,15 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
 
           </div>
 
-          {/* Visual Card Slider (Universal Logo object-contain p-8 bg-white) */}
+          {/* Visual Card Slider Container */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 group h-80 sm:h-96 bg-white p-8 flex items-center justify-center">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-white p-8 h-80 sm:h-96 flex items-center justify-center">
               <img
                 src="/logo.png"
                 alt={activeSlide.title}
                 className="max-w-full max-h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105 drop-shadow-md"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none" />
               
               <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
                 <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200 text-xs shadow-sm">
@@ -161,13 +161,13 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
         </div>
       </div>
 
-      {/* Animated Scroll to Know More Indicator */}
+      {/* Animated Scroll to Know More Indicator (Positioned inside padded cream area) */}
       <button
         onClick={handleScrollDown}
-        className="absolute bottom-5 left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center gap-1 z-20 cursor-pointer group focus:outline-none"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center gap-1 z-20 cursor-pointer group focus:outline-none"
         aria-label="Scroll to Know More"
       >
-        <span className="bg-white text-gray-800 text-[11px] font-bold tracking-[0.15em] px-5 py-2 rounded-full shadow-md border border-gray-100 group-hover:shadow-lg group-hover:text-jute-dark transition-all">
+        <span className="bg-white text-gray-800 text-[11px] font-bold tracking-[0.15em] px-5 py-2 rounded-full shadow-md border border-gray-200 group-hover:shadow-lg group-hover:text-jute-dark transition-all">
           SCROLL TO KNOW MORE
         </span>
         <ChevronDown className="text-jute-dark w-5 h-5 animate-bounce mt-0.5" />
