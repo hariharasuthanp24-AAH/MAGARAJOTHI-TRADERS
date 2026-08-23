@@ -161,16 +161,21 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
         </div>
       </div>
 
-      {/* Animated Scroll to Know More Indicator (Positioned inside padded cream area) */}
+      {/* Sleek Hover-Reveal Scroll Indicator */}
       <button
         onClick={handleScrollDown}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center gap-1 z-20 cursor-pointer group focus:outline-none"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center group cursor-pointer z-30 focus:outline-none hidden sm:flex"
         aria-label="Scroll to Know More"
       >
-        <span className="bg-white text-gray-800 text-[11px] font-bold tracking-[0.15em] px-5 py-2 rounded-full shadow-md border border-gray-200 group-hover:shadow-lg group-hover:text-jute-dark transition-all">
+        {/* Hover-Reveal Tooltip */}
+        <div className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 text-xs font-bold tracking-[0.1em] px-4 py-2 rounded-full shadow-lg border border-gray-200 pointer-events-none whitespace-nowrap">
           SCROLL TO KNOW MORE
-        </span>
-        <ChevronDown className="text-jute-dark w-5 h-5 animate-bounce mt-0.5" />
+        </div>
+
+        {/* Bouncing Chevron in Circular Badge */}
+        <div className="p-2.5 bg-white rounded-full shadow-md group-hover:shadow-xl border border-gray-200 transition-all">
+          <ChevronDown className="w-5 h-5 text-jute-dark animate-bounce" />
+        </div>
       </button>
 
     </section>
