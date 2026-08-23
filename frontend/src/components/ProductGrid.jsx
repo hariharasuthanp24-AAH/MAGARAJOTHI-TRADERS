@@ -2,21 +2,20 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import ProductDetailModal from './ProductDetailModal';
 import { fetchProductsApi } from '../api/client';
-import { Search, Loader2, Sparkles, Leaf } from 'lucide-react';
+import { Loader2, Sparkles, Leaf } from 'lucide-react';
 
-const ProductGrid = ({ activeCategory = 'All', onSelectCategory, onOpenInquiry }) => {
+const ProductGrid = ({ onOpenInquiry }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     const loadProducts = async () => {
       setLoading(true);
       try {
-        const data = await fetchProductsApi(activeCategory);
+        const data = await fetchProductsApi('All');
         const productList = Array.isArray(data) ? data : (data?.data || []);
-        console.log("Fetched Products:", productList);
+        console.log("Direct Fetched Products:", productList);
         setProducts(productList);
       } catch (err) {
         console.error('Error fetching products in ProductGrid:', err);
@@ -26,29 +25,7 @@ const ProductGrid = ({ activeCategory = 'All', onSelectCategory, onOpenInquiry }
       }
     };
     loadProducts();
-  }, [activeCategory]);
-
-  const categoryTabs = ['All', 'Jute', 'Nano Bags', 'Jute Thread', '2nd Jute Bags', 'Plastic', 'Plastic Roll'];
-
-  const filteredProducts = Array.isArray(products)
-    ? products.filter((item) => {
-        const q = searchTerm.toLowerCase().trim();
-        const matchesSearch =
-          !q ||
-          item.name?.toLowerCase().includes(q) ||
-          item.category?.toLowerCase().includes(q) ||
-          item.subcategory?.toLowerCase().includes(q) ||
-          item.description?.toLowerCase().includes(q);
-
-        const currentCat = activeCategory || 'All';
-        const matchesCategory =
-          currentCat === 'All' ||
-          currentCat === 'All Range' ||
-          item.category?.toLowerCase().trim() === currentCat.toLowerCase().trim();
-
-        return matchesSearch && matchesCategory;
-      })
-    : [];
+  }, []);
 
   return (
     <section id="products-section" className="py-20 md:py-28 bg-[#FAF6F0] relative font-sans border-b border-gray-200">
@@ -70,50 +47,16 @@ const ProductGrid = ({ activeCategory = 'All', onSelectCategory, onOpenInquiry }
           </p>
         </div>
 
-        {/* Filters & Search Bar Container */}
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 mb-14 flex flex-col lg:flex-row items-center justify-between gap-6">
-          
-          {/* Robust Filter Buttons */}
-          <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-            {categoryTabs.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => onSelectCategory && onSelectCategory(cat)}
-                className={`px-6 py-3 rounded-xl text-sm sm:text-base font-bold transition-all ${
-                  activeCategory === cat
-                    ? 'bg-jute-dark text-white shadow-md'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-                }`}
-              >
-                {cat === 'All' ? '🌱 All Range' : cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Search Bar Component */}
-          <div className="relative w-full lg:w-96">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
-            <input
-              type="text"
-              placeholder="Search products or specs..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-white border border-gray-300 rounded-xl pl-12 pr-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:border-jute-dark focus:ring-1 focus:ring-jute-dark shadow-sm transition-colors"
-            />
-          </div>
-
-        </div>
-
         {/* Loading Spinner */}
         {loading ? (
           <div className="py-28 text-center flex flex-col items-center justify-center space-y-4">
             <Loader2 className="w-14 h-14 text-jute-dark animate-spin" />
             <p className="text-lg font-semibold text-gray-700">Loading catalog items...</p>
           </div>
-        ) : filteredProducts.length > 0 ? (
-          /* Products Grid */
+        ) : products.length > 0 ? (
+          /* Direct Products Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
-            {filteredProducts.map((product) => (
+            {products.map((product) => (
               <ProductCard
                 key={product._id || product.slug}
                 product={product}
@@ -123,22 +66,13 @@ const ProductGrid = ({ activeCategory = 'All', onSelectCategory, onOpenInquiry }
             ))}
           </div>
         ) : (
-          /* Empty Search Fallback */
+          /* Fallback when database is empty */
           <div className="bg-white p-16 rounded-3xl text-center border border-gray-200 max-w-xl mx-auto space-y-6 shadow-sm">
             <Sparkles className="w-16 h-16 text-jute-dark mx-auto" />
-            <h3 className="text-2xl font-bold text-gray-900">No products match your filter</h3>
+            <h3 className="text-2xl font-bold text-gray-900">No products available in the database</h3>
             <p className="text-base text-gray-500 leading-relaxed max-w-md mx-auto">
-              Try searching with a different term or select another product category button above.
+              Please check back shortly or request a direct custom quotation from our sales desk.
             </p>
-            <button
-              onClick={() => {
-                if (onSelectCategory) onSelectCategory('All');
-                setSearchTerm('');
-              }}
-              className="bg-jute-dark text-white hover:bg-jute px-8 py-3.5 rounded-xl text-base font-bold uppercase tracking-wider transition-colors shadow"
-            >
-              Reset All Filters
-            </button>
           </div>
         )}
 
