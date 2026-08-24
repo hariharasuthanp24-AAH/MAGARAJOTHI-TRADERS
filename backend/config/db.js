@@ -4,13 +4,15 @@ let isConnected = false;
 
 const connectDB = async () => {
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/magarajothi_traders';
+    const mongoUri = process.env.MONGODB_URI || process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/magarajothi_traders';
+    
+    // Connect with Mongoose for MongoDB Atlas or Local MongoDB
     const conn = await mongoose.connect(mongoUri, {
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 10000, // 10s timeout for cloud connection
     });
 
     isConnected = true;
-    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    console.log(`✅ MongoDB Connected: ${conn.connection.host} (${conn.connection.name})`);
     return conn;
   } catch (error) {
     console.warn(`⚠️ MongoDB Connection Warning: ${error.message}`);

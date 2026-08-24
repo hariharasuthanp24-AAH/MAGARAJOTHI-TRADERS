@@ -9,6 +9,9 @@ build/
 
 # Environment files & Logs
 .env
+backend/.env
+frontend/.env
+*.env.local
 *.log
 .DS_Store
 Thumbs.db
