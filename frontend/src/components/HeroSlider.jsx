@@ -56,7 +56,7 @@ const HeroSlider = ({ onOpenInquiry, onSelectCategory }) => {
   const activeSlide = slides[currentSlide];
 
   return (
-    <section className="relative w-full bg-[#FAF6F0] overflow-hidden pt-12 md:pt-20 pb-28 md:pb-36 font-sans border-b border-gray-200/80 m-0 p-0">
+    <section className="relative w-full bg-[#FAF6F0] overflow-hidden pt-12 md:pt-20 pb-28 md:pb-36 font-sans border-b border-gray-200/80 m-0">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
